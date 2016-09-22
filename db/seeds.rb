@@ -1,7 +1,60 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create("email" => 'stephen_darling@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
+User.create("email" => 'peter_caulum@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
+User.create("email" => 'brian_gay@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
+User.create("email" => 'ryan_tappis@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
+User.create("email" => 'sean_owen@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
+
+Organization.create("name" => "Abt Classic")
+Organization.create("name" => "JTA")
+
+Month.create("id" => 1, "name" => "January", "short_name" => "Jan")
+Month.create("id" => 2, "name" => "February", "short_name" => "Feb")
+Month.create("id" => 3, "name" => "March", "short_name" => "Mar")
+Month.create("id" => 4, "name" => "April", "short_name" => "Apr")
+Month.create("id" => 5, "name" => "May", "short_name" => "May")
+Month.create("id" => 6, "name" => "June", "short_name" => "Jun")
+Month.create("id" => 7, "name" => "July", "short_name" => "Jul")
+Month.create("id" => 8, "name" => "August", "short_name" => "Aug")
+Month.create("id" => 9, "name" => "September", "short_name" => "Sept")
+Month.create("id" => 10, "name" => "October", "short_name" => "Oct")
+Month.create("id" => 11, "name" => "November", "short_name" => "Nov")
+Month.create("id" => 12, "name" => "December", "short_name" => "Dec")
+
+MaturityValue.create("id" => 1, "name" => "0")
+MaturityValue.create("id" => 2, "name" => "1")
+MaturityValue.create("id" => 3, "name" => "2")
+MaturityValue.create("id" => 4, "name" => "3")
+MaturityValue.create("id" => 5, "name" => "4")
+
+CsfFunction.create("id" => 1, "name" => "Identify")
+CsfFunction.create("id" => 2, "name" => "Protect")
+CsfFunction.create("id" => 3, "name" => "Detect")
+CsfFunction.create("id" => 4, "name" => "Respond")
+CsfFunction.create("id" => 5, "name" => "Recover")
+
+Metric.create("name" => "Access Control", "organization_id" => 1, "csf_function_id" => 1)
+Metric.create("name" => "AV/Malware Protection", "organization_id" => 1, "csf_function_id" => 1)
+Metric.create("name" => "Configuration Baseline", "organization_id" => 1, "csf_function_id" => 1)
+Metric.create("name" => "Cyber Resource Recovery", "organization_id" => 1, "csf_function_id" => 1)
+Metric.create("name" => "Data Security", "organization_id" => 1, "csf_function_id" => 2)
+Metric.create("name" => "Incident Containment", "organization_id" => 1, "csf_function_id" => 2)
+Metric.create("name" => "Incident Detection", "organization_id" => 1, "csf_function_id" => 2)
+Metric.create("name" => "Incident Response", "organization_id" => 1, "csf_function_id" => 2)
+Metric.create("name" => "Mobile Device Mgmt.", "organization_id" => 1, "csf_function_id" => 2)
+Metric.create("name" => "Mobile Device Security", "organization_id" => 1, "csf_function_id" => 3)
+Metric.create("name" => "Penetration Testing", "organization_id" => 1, "csf_function_id" => 3)
+Metric.create("name" => "Policy Compliance", "organization_id" => 1, "csf_function_id" => 3)
+Metric.create("name" => "Policy Violation Reporting", "organization_id" => 1, "csf_function_id" => 3)
+Metric.create("name" => "Recovery Time Objectives", "organization_id" => 1, "csf_function_id" => 3)
+Metric.create("name" => "Regulatory Compliance", "organization_id" => 1, "csf_function_id" => 4)
+Metric.create("name" => "Risk Mitigation", "organization_id" => 1, "csf_function_id" => 4)
+Metric.create("name" => "Risk Register", "organization_id" => 1, "csf_function_id" => 4)
+Metric.create("name" => "Subcontractor Security", "organization_id" => 1, "csf_function_id" => 4)
+Metric.create("name" => "System Patching", "organization_id" => 1, "csf_function_id" => 5)
+Metric.create("name" => "Training and Awareness", "organization_id" => 1, "csf_function_id" => 5)
+
+@metric = Metric.all 
+@metric.each do |i|
+	MetricValue.create("metric_id" => i.id, "value" => "10", "month_id" => 1, "year" => 2016, "maturity_value_id" => "2")
+	MetricValue.create("metric_id" => i.id, "value" => "20", "month_id" => 2, "year" => 2016, "maturity_value_id" => "3")
+end

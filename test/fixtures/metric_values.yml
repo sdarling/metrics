@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  metric_id: 1
+  value: 
+  value: 
+  maturity_value_id: 1
+
+two:
+  metric_id: 1
+  value: 
+  value: 
+  maturity_value_id: 1
