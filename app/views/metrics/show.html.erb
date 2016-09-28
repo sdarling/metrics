@@ -20,28 +20,30 @@
 
 <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Month</th>
-      <th>Year</th>
-      <th>Value</th>
-      <th>Maturity Value</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @metric_values.each do |values| %>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= values.month_name %></td>
-        <td><%= values.year %></td>
-        <td><%= values.value %></td>
-        <td><%= values.maturity_value_name %>
+        <th>Month</th>
+        <th>Year</th>
+        <th>Value</th>
+        <th>Maturity Value</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+      <% @metric_values.each do |values| %>
+        <tr>
+          <td><%= values.month_name %></td>
+          <td><%= values.year %></td>
+          <td><%= values.value %></td>
+          <td><%= values.maturity_value_name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
 
 <%= render 'values' %>

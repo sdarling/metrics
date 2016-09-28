@@ -3,6 +3,7 @@ User.create("email" => 'peter_caulum@abtassoc.com', "password" => 'Pa$$word', "p
 User.create("email" => 'brian_gay@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
 User.create("email" => 'ryan_tappis@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
 User.create("email" => 'sean_owen@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
+User.create("email" => 'jose_frometaguerra@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
 
 Organization.create("name" => "Abt Classic")
 Organization.create("name" => "JTA")
