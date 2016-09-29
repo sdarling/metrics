@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @csf_function.name %>
+</p>
+
+<p>
+<strong>Average Maturity Level:</strong>
+  <%= @csf_function.avg_maturity_level %>
+</p>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric Name</th>
+      <th>Maturity Level</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @metrics.each do |metric| %>
+      <tr>
+        <td><%= link_to metric.name, metric %></td>
+        <td><%= metric.recent_maturity_level %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

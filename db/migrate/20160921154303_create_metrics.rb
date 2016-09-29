@@ -4,6 +4,8 @@ class CreateMetrics < ActiveRecord::Migration
       t.string :name
       t.integer :organization_id
       t.integer :csf_function_id
+      t.integer :unit_id
+      t.integer :recent_maturity_level
       t.timestamps null: false
     end
   end

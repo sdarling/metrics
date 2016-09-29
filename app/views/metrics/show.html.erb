@@ -6,13 +6,14 @@
 </p>
 
 <p>
-  <strong>Organization:</strong>
-  <%= @metric.organization_name %>
+  <strong>Recent Maturity Level:</strong>
+  <%= @metric.recent_maturity_level %>
 </p>
+
 
 <p>
   <strong>CSF Function:</strong>
-  <%= @metric.csf_function_name %>
+  <%= link_to @metric.csf_function_name, csf_function_path(@metric.csf_function_id) %>
 </p>
 <br/>
 <%= link_to 'Edit', edit_metric_path(@metric) %> |
@@ -25,19 +26,17 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Month</th>
-        <th>Year</th>
+        <th>Date</th>
         <th>Value</th>
-        <th>Maturity Value</th>
+        <th>Maturity Level</th>
       </tr>
     </thead>
     <tbody>
       <% @metric_values.each do |values| %>
         <tr>
-          <td><%= values.month_name %></td>
-          <td><%= values.year %></td>
+          <td><%= values.effective_date %></td>
           <td><%= values.value %></td>
-          <td><%= values.maturity_value_name %></td>
+          <td><%= values.maturity_level %>
         </tr>
       <% end %>
     </tbody>

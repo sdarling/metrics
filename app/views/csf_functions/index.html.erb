@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>CSF Functions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Function Name</th>
+      <th>Average Maturity Level</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @csf_functions.each do |csf_function| %>
+      <tr>
+        <td><%= link_to csf_function.name, csf_function %></td>
+        <td><%= csf_function.avg_maturity_level %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

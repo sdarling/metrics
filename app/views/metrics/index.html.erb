@@ -1,14 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <h1>All Metrics</h1>
 
 <table>
   <thead>
     <tr>
       <th>Metric Name</th>
-      <th>Organization</th>
       <th>CSF Function</th>
-      <th colspan="4"></th>
+      <th>Maturity Level</th>
     </tr>
   </thead>
 
@@ -16,9 +13,8 @@
     <% @metrics.each do |metric| %>
       <tr>
         <td><%= link_to metric.name, metric %></td>
-        <td><%= link_to metric.organization_name, organization_path(metric.organization_id) %></td>
-        <td><%= metric.csf_function_name %></td>
-        <td><%= link_to 'Destroy', metric, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to metric.csf_function_name, csf_function_path(metric.csf_function_id) %></td>
+        <td><%= metric.recent_maturity_level %>
       </tr>
     <% end %>
   </tbody>

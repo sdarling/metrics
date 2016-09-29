@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921182758) do
+ActiveRecord::Schema.define(version: 20160929152735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,43 +19,53 @@ ActiveRecord::Schema.define(version: 20160921182758) do
   create_table "csf_functions", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.decimal  "avg_maturity_level", precision: 10, scale: 2
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
-  create_table "maturity_values", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "maturity_level_values", force: :cascade do |t|
+    t.integer  "maturity_level_id"
+    t.datetime "effective_date"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "maturity_levels", force: :cascade do |t|
+    t.integer  "metric_id"
+    t.integer  "weighted_value"
+    t.decimal  "low",            precision: 10, scale: 2
+    t.decimal  "high",           precision: 10, scale: 2
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "metric_values", force: :cascade do |t|
     t.integer  "metric_id"
-    t.decimal  "value",             precision: 10, scale: 2
-    t.integer  "maturity_value_id"
-    t.integer  "month_id"
-    t.integer  "year"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.decimal  "value",          precision: 10, scale: 2
+    t.integer  "maturity_level"
+    t.datetime "effective_date"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "metrics", force: :cascade do |t|
     t.string   "name"
     t.integer  "organization_id"
     t.integer  "csf_function_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "unit_id"
+    t.integer  "recent_maturity_level"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
-  create_table "months", force: :cascade do |t|
+  create_table "organizations", force: :cascade do |t|
     t.string   "name"
-    t.string   "short_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "organizations", force: :cascade do |t|
+  create_table "units", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

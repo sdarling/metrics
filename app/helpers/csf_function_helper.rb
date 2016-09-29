@@ -1,0 +1,2 @@
+module CsfFunctionHelper
+end
