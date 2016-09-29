@@ -12,20 +12,22 @@
 
 <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Metric Name</th>
-      <th>Maturity Level</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @metrics.each do |metric| %>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= link_to metric.name, metric %></td>
-        <td><%= metric.recent_maturity_level %></td>
+        <th>Metric Name</th>
+        <th>Maturity Level</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @metrics.each do |metric| %>
+        <tr>
+          <td><%= link_to metric.name, metric %></td>
+          <td><%= metric.recent_maturity_level %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

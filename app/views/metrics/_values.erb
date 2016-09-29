@@ -1,7 +1,11 @@
 <%= simple_form_for [@metric, @metric_value] do |f| %>
 
-	<%= f.label :effective_date, "Date" %>
+
     <%= f.input :effective_date, as: :date %>
+
+
+
+
     <%= f.label :value, "Metric Value" %>
     <%= f.text_field :value %>
     <%= f.hidden_field :metric_id, value: @metric.id %>    
