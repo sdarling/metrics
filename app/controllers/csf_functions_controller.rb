@@ -5,6 +5,7 @@ class CsfFunctionsController < ApplicationController
   # GET /metrics.json
   def index
     @csf_functions = CsfFunction.all
+    @score = CsfFunction.all.average(:avg_maturity_level)
   end
 
   # GET /metrics/1

@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :organizations
   resources :csf_functions
   devise_for :users
-  root to: 'visitors#index'
+  root to: 'csf_functions#index'
 end
