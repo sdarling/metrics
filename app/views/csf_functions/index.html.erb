@@ -31,4 +31,28 @@
 
 <br>
 
+<h1>Top 3 Recent Metric Values</h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Metric Value Id</th>
+        <th>Value </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @recent_metrics.each do |m| %>
+        <tr>
+          <td><%= m.id %></td>
+          <td><%= m.value %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
 
