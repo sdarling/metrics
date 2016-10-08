@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'simple_form'
 gem 'simple-form-datepicker'
-#gem 'font-awesome-sass'
+gem 'font-awesome-sass'
 group :development, :test do
   gem 'byebug'
 end
