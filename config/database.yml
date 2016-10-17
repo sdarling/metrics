@@ -18,8 +18,8 @@ development:
   encoding: unicode
   database: metrics_development
   pool:     5
-  username: sdarling
-  password: Il0veUVA!23098
+  username: stephendarling
+  password: 
   template: template0
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -46,8 +46,8 @@ test:
   encoding: unicode
   database: metrics_test
   pool:     5
-  username: sdarling
-  password: Il0veUVA!23098
+  username: stephendarling
+  password: 
   template: template0
 
 production:
@@ -56,6 +56,6 @@ production:
   encoding: unicode
   database: metrics_production
   pool:     5
-  username: sdarling
-  password: Il0veUVA!23098
+  username: stephendarling
+  password: 
   template: template0
