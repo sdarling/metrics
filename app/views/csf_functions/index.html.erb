@@ -7,10 +7,27 @@
           <h1 class="card-text"><%= @score %></h1>
         </div>
           <ul class="list-group list-group-flush">
-          <li class="list-group-item">Tier 1: Partial</li>
-          <li class="list-group-item">Tier 2: Risk Informed</li>
-          <li class="list-group-item">Tier 3: Repeatable</li>
-          <li class="list-group-item">Tier 4: Adaptive</li>          
+          <% if @score.between?(0,1) %>
+            <li class="list-group-item"><b>Tier 1: Partial</b></li>
+            <li class="list-group-item">Tier 2: Risk Informed</li>
+            <li class="list-group-item">Tier 3: Repeatable</li>
+            <li class="list-group-item">Tier 4: Adaptive</li>  
+          <% elsif @score.between?(1,2) %>  
+            <li class="list-group-item">Tier 1: Partial</li>
+            <li class="list-group-item"><b>Tier 2: Risk Informed</b></li>
+            <li class="list-group-item">Tier 3: Repeatable</li>
+            <li class="list-group-item">Tier 4: Adaptive</li> 
+          <% elsif @score.between?(2,3) %> 
+            <li class="list-group-item">Tier 1: Partial</li>
+            <li class="list-group-item">Tier 2: Risk Informed</li>
+            <li class="list-group-item"><b>Tier 3: Repeatable</b></li>
+            <li class="list-group-item">Tier 4: Adaptive</li>  
+          <% elsif @score.between?(3,4) %>
+            <li class="list-group-item">Tier 1: Partial</li>
+            <li class="list-group-item">Tier 2: Risk Informed</li>
+            <li class="list-group-item">Tier 3: Repeatable</li>
+            <li class="list-group-item"><b>Tier 4: Adaptive</b></li>  
+          <% end %>                                    
         </ul>    
       </div>
     </div>
@@ -143,7 +160,8 @@
                       <% @scores.each do |score| %>
                         <%= score.target_value %>,
                       <% end %>
-              ]
+              ],
+              dashStyle: 'dash'
           }],
           credits: {
             enabled: false
