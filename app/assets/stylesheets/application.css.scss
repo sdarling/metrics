@@ -14,3 +14,41 @@
  *= require_self
  */
 
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15,
+.col-xl-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+#identify-card {
+	background: #006fb3;
+	color: white
+}
+
+#protect-card {
+	background: #7f3f98;
+	color: white
+}
+
+#detect-card {
+	background: #ffdf16
+}
+
+#respond-card {
+	background: #ed1c24;
+	color: white
+}
+
+#recover-card {
+	background: #0ba24b;
+	color: white
+}

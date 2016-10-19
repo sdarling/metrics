@@ -68,10 +68,11 @@ ActiveRecord::Schema.define(version: 20161019125702) do
 
   create_table "scores", force: :cascade do |t|
     t.datetime "effective_date"
-    t.decimal  "actual_value",   precision: 10, scale: 2
-    t.decimal  "target_value",   precision: 10, scale: 2
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.decimal  "actual_value",    precision: 10, scale: 2
+    t.decimal  "target_value",    precision: 10, scale: 2
+    t.integer  "csf_function_id"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   create_table "units", force: :cascade do |t|

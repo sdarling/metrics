@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-xs-3">
       <div class="card">
-        <h5 class="card-header text-sm-center">Abt Cybersecurity Health Score</h5>
-        <div class="card-block text-sm-center">
+        <h5 class="card-header text-xs-center">Abt Cybersecurity Health Score</h5>
+        <div class="card-block text-xs-center">
           <h1 class="card-text"><%= @score %></h1>
         </div>
           <ul class="list-group list-group-flush">
@@ -14,125 +14,88 @@
         </ul>    
       </div>
     </div>
-    <div class="col-sm-9">
+    <div class="col-xs-9">
       <div class="card">
-        <h5 class="card-header text-sm-center">Current Score by Quarter</h5>
-        <div class="card-block text-sm-center">
-          <div id="test" >
+        <h5 class="card-header text-xs-center">Current Score by Quarter</h5>
+        <div class="card-block text-xs-center">
+          <div id="score-timeseries" >
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-2 offset-sm-1">
+    <div class="col-xs-15">
       <div class="card">
-        <h5 class="card-header text-sm-center">Identify</h5>      
-        <div class="card-block text-sm-center">
-          <h5 class="card-text"><%= @identify.avg_maturity_level %></h4>
-          <h6 class="card-text">Insert Card Graph</h6>
-            <a href="#" class="btn btn-primary">See All</a>
+        <h5 class="card-header text-xs-center" id="identify-card">Identify</h5>      
+        <div class="card-block text-xs-center">
+          <h5 class="card-text"><%= @identify.avg_maturity_level %></h5>
+        </div>
+        <div class="card-footer">
+          <div id="identify"></div>
         </div>
       </div>
     </div>
-    <div class="col-sm-2">
+    <div class="col-xs-15">
       <div class="card">
-        <h5 class="card-header text-sm-center">Protect</h5>      
-        <div class="card-block text-sm-center">
-          <h5 class="card-text"><%= @protect.avg_maturity_level %></h4>
-          <h6 class="card-text">Insert Card Graph</h6> 
-            <a href="#" class="btn btn-primary">See All</a>                 
+        <h5 class="card-header text-xs-center" id="protect-card">Protect</h5>      
+        <div class="card-block text-xs-center">
+          <h5 class="card-text"><%= @protect.avg_maturity_level %></h5>
+        </div>
+        <div class="card-footer">
+          <div id="protect"></div>
         </div>
       </div>
     </div>
-    <div class="col-sm-2">
+    <div class="col-xs-15">
       <div class="card">
-        <h5 class="card-header text-sm-center">Detect</h5>      
-        <div class="card-block text-sm-center">
-          <h5 class="card-text"><%= @detect.avg_maturity_level %></h4>
-          <h6 class="card-text">Insert Card Graph</h6> 
-            <a href="#" class="btn btn-primary">See All</a>                 
+        <h5 class="card-header text-xs-center" id="detect-card">Detect</h5>      
+        <div class="card-block text-xs-center">
+          <h5 class="card-text"><%= @detect.avg_maturity_level %></h5>
+        </div>
+        <div class="card-footer">
+          <div id="detect"></div>
         </div>
       </div>
     </div>
-    <div class="col-sm-2">
+    <div class="col-xs-15">
       <div class="card">
-        <h5 class="card-header text-sm-center">Respond</h5>      
-        <div class="card-block text-sm-center">
-          <h5 class="card-text"><%= @respond.avg_maturity_level %></h4>
-          <h6 class="card-text">Insert Card Graph</h6>
-            <a href="#" class="btn btn-primary">See All</a>          
+        <h5 class="card-header text-xs-center" id="respond-card">Respond</h5>      
+        <div class="card-block text-xs-center">
+          <h5 class="card-text"><%= @respond.avg_maturity_level %></h5>
+        </div>
+        <div class="card-footer">
+          <div id="respond"></div>
         </div>
       </div>
     </div>
-    <div class="col-sm-2">
+    <div class="col-xs-15">
       <div class="card">
-        <h5 class="card-header text-sm-center">Recover</h5>      
-        <div class="card-block text-sm-center">
-          <h5 class="card-text"><%= @recover.avg_maturity_level %></h4>
-          <h6 class="card-text">Insert Card Graph</h6>  
-            <a href="#" class="btn btn-primary">See All</a>      
+        <h5 class="card-header text-xs-center" id="recover-card">Recover</h5>      
+        <div class="card-block text-xs-center">
+          <h5 class="card-text"><%= @recover.avg_maturity_level %></h5>
+        </div>
+        <div class="card-footer">
+          <div id="recover"></div>
         </div>
       </div>
-    </div>                
-  </div>  
-</div>
-
-
-
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Function Name</th>
-        <th>Average Maturity Level</th>
-        <th>Num Metrics</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @csf_functions.each do |csf_function| %>
-        <tr>
-          <td><%= link_to csf_function.name, csf_function %></td>
-          <td><%= csf_function.avg_maturity_level %></td>
-          <td><%= csf_function.num_metrics %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-
-<div id="test"></div>
-
-<br>
-
-<h1>Top 3 Recent Metric Values</h1>
-
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Metric Value Id</th>
-        <th>Value </th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @recent_metrics.each do |m| %>
-        <tr>
-          <td><%= m.id %></td>
-          <td><%= m.value %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="card">
+        <h5 class="card-header text-sm-center">CSF KPI Current Score and Targets</h5> 
+          <div id="scores-bar"></div>
+      </div>    
+    </div>  
+  </div> 
 </div>
 
 <script>
   $(function () {
-      $('#test').highcharts({
+      $('#score-timeseries').highcharts({
           chart: {
-            height: 240
+            height: 240,
           },  
           title: {
               text: '',
@@ -159,7 +122,7 @@
               }]
           },
           tooltip: {
-              valueSuffix: '°C'
+              valueSuffix: ''
           },
           legend: {
               layout: 'vertical',
@@ -169,10 +132,18 @@
           },
           series: [{
               name: 'Actual',
-              data: [1.8, 2.8, 2.7]
+              data: [
+                      <% @scores.each do |score| %>
+                        <%= score.actual_value %>,
+                      <% end %>
+              ]
           }, {
               name: 'Target',
-              data: [2.1, 2.9, 3.4]
+              data: [
+                      <% @scores.each do |score| %>
+                        <%= score.target_value %>,
+                      <% end %>
+              ]
           }],
           credits: {
             enabled: false
@@ -181,4 +152,404 @@
   });
 </script>
 
+<script>
+  $(function () {
+    $('#scores-bar').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: ''
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: [
+              <% @metrics.each do |metric| %>
+                '<%= metric.name %>',
+              <% end %>
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Maturity Level'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        credits: {
+          enabled: false
+        },
+        series: [{
+            name: 'Recent Value',
+            data: [
+                    <% @metrics.each do |metric| %>
+                      <%= metric.recent_maturity_level %>,
+                    <% end %>
+            ]
+            },{
+            name: 'Target Value',
+            data: [
+                    <% @metrics.each do |metric| %>
+                      <%= metric.target_maturity_level %>,
+                    <% end %>
+            ]
+        }]
+    });
+  });
+</script>
 
+<script>
+  $(function () {
+      $('#identify').highcharts({
+          chart: {
+              height: 100,
+              backgroundColor: 'transparent'
+          },  
+          colors: ['#006fb3', '#000000'],                            
+          title: {
+              text: '',
+              x: -20 //center
+          },
+          subtitle: {
+              text: '',
+              x: -20
+          },
+          xAxis: {
+              categories: ['Jan', 'Feb', 'Mar']
+          },
+          yAxis: {
+              min: 0,
+              max: 4,
+              tickInterval: 1,
+              title: {
+                  text: ''
+              },
+              plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+              }],
+              labels:
+              {
+                enabled: false
+              }              
+          },
+          tooltip: {
+              valueSuffix: ''
+          },
+          legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle',
+              borderWidth: 0,
+              enabled: false
+          },
+          series: [{
+              name: 'Actual',
+              data: [
+                      <% @identify_score.each do |score| %>
+                        <%= score.actual_value %>,
+                      <% end %>
+              ]
+          }, {
+              name: 'Target',
+              data: [
+                      <% @identify_score.each do |score| %>
+                        <%= score.target_value %>,
+                      <% end %>
+              ]
+          }],
+          credits: {
+            enabled: false
+          }
+      });
+  });
+</script>
+
+<script>
+  $(function () {
+      $('#protect').highcharts({
+          chart: {
+              height: 100,
+              backgroundColor: 'transparent'                            
+          },  
+          colors: ['#7f3f98', '#000000'],                                      
+          title: {
+              text: '',
+              x: -20 //center
+          },
+          subtitle: {
+              text: '',
+              x: -20
+          },
+          xAxis: {
+              categories: ['Jan', 'Feb', 'Mar']
+          },
+          yAxis: {
+              min: 0,
+              max: 4,
+              tickInterval: 1,
+              title: {
+                  text: ''
+              },
+              plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+              }],
+              labels:
+              {
+                enabled: false
+              }              
+          },
+          tooltip: {
+              valueSuffix: ''
+          },
+          legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle',
+              borderWidth: 0,
+              enabled: false
+          },
+          series: [{
+              name: 'Actual',
+              data: [
+                      <% @protect_score.each do |score| %>
+                        <%= score.actual_value %>,
+                      <% end %>
+              ]
+          }, {
+              name: 'Target',
+              data: [
+                      <% @protect_score.each do |score| %>
+                        <%= score.target_value %>,
+                      <% end %>
+              ]
+          }],
+          credits: {
+            enabled: false
+          }
+      });
+  });
+</script>
+
+<script>
+  $(function () {
+      $('#detect').highcharts({
+          chart: {
+              height: 100,
+              backgroundColor: 'transparent'                            
+          },  
+          colors: ['#ffdf16', '#000000'],                                                
+          title: {
+              text: '',
+              x: -20 //center
+          },
+          subtitle: {
+              text: '',
+              x: -20
+          },
+          xAxis: {
+              categories: ['Jan', 'Feb', 'Mar']
+          },
+          yAxis: {
+              min: 0,
+              max: 4,
+              tickInterval: 1,
+              title: {
+                  text: ''
+              },
+              plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+              }],
+              labels:
+              {
+                enabled: false
+              }              
+          },
+          tooltip: {
+              valueSuffix: ''
+          },
+          legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle',
+              borderWidth: 0,
+              enabled: false
+          },
+          series: [{
+              name: 'Actual',
+              data: [
+                      <% @detect_score.each do |score| %>
+                        <%= score.actual_value %>,
+                      <% end %>
+              ]
+          }, {
+              name: 'Target',
+              data: [
+                      <% @detect_score.each do |score| %>
+                        <%= score.target_value %>,
+                      <% end %>
+              ]
+          }],
+          credits: {
+            enabled: false
+          }
+      });
+  });
+</script>
+
+<script>
+  $(function () {
+      $('#respond').highcharts({
+          chart: {
+              height: 100,
+              backgroundColor: 'transparent'                            
+          },  
+          colors: ['#ed1c24', '#000000'],                                                          
+          title: {
+              text: '',
+              x: -20 //center
+          },
+          subtitle: {
+              text: '',
+              x: -20
+          },
+          xAxis: {
+              categories: ['Jan', 'Feb', 'Mar']
+          },
+          yAxis: {
+              min: 0,
+              max: 4,
+              tickInterval: 1,
+              title: {
+                  text: ''
+              },
+              plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+              }],
+              labels:
+              {
+                enabled: false
+              }              
+          },
+          tooltip: {
+              valueSuffix: ''
+          },
+          legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle',
+              borderWidth: 0,
+              enabled: false
+          },
+          series: [{
+              name: 'Actual',
+              data: [
+                      <% @respond_score.each do |score| %>
+                        <%= score.actual_value %>,
+                      <% end %>
+              ]
+          }, {
+              name: 'Target',
+              data: [
+                      <% @respond_score.each do |score| %>
+                        <%= score.target_value %>,
+                      <% end %>
+              ]
+          }],
+          credits: {
+            enabled: false
+          }
+      });
+  });
+</script>
+
+<script>
+  $(function () {
+      $('#recover').highcharts({
+          chart: {
+              height: 100,
+              backgroundColor: 'transparent'              
+          },  
+          colors: ['#0ba24b', '#000000'],                                                                   
+          title: {
+              text: '',
+              x: -20 //center
+          },
+          subtitle: {
+              text: '',
+              x: -20
+          },
+          xAxis: {
+              categories: ['Jan', 'Feb', 'Mar']
+          },
+          yAxis: {
+              min: 0,
+              max: 4,
+              tickInterval: 1,
+              title: {
+                  text: ''
+              },
+              plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+              }],
+              labels:
+              {
+                enabled: false
+              }              
+          },
+          tooltip: {
+              valueSuffix: ''
+          },
+          legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle',
+              borderWidth: 0,
+              enabled: false
+          },
+          series: [{
+              name: 'Actual',
+              data: [
+                      <% @recover_score.each do |score| %>
+                        <%= score.actual_value %>,
+                      <% end %>
+              ]
+          }, {
+              name: 'Target',
+              data: [
+                      <% @recover_score.each do |score| %>
+                        <%= score.target_value %>,
+                      <% end %>
+              ]
+          }],
+          credits: {
+            enabled: false
+          }
+      });
+  });
+</script>
