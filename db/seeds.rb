@@ -72,3 +72,7 @@ end
 	end
 end
 
+Score.create("effective_date" => "2016-1-1", "actual_value" => "1.5", "target_value" => "2.6")
+Score.create("effective_date" => "2016-2-1", "actual_value" => "1.9", "target_value" => "3")
+Score.create("effective_date" => "2016-3-1", "actual_value" => "2.5", "target_value" => "3.2")
+
