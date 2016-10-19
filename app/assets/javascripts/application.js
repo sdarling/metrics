@@ -15,7 +15,9 @@
 //= require turbolinks
 //= require highcharts.js
 //= require highcharts-more.js
+//= require tether
 //= require bootstrap
 //= require bootstrap-sprockets
 //= require_tree .
 
+$('.dropdown-toggle').dropdown();

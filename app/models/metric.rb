@@ -21,5 +21,21 @@ class Metric < ActiveRecord::Base
 		MetricValue.where("metric_id" => self.id).count(:id)
 	end
 
+	def hex_color
+
+		if self.csf_function_id == 1
+			"006fb3"
+		elsif self.csf_function_id == 2
+			"7f3f98"
+		elsif self.csf_function_id == 3
+			"ffdf16"
+		elsif self.csf_function_id == 4
+			"ed1c24"
+		elsif self.csf_function_id == 5
+			"0ba24b"
+		end
+
+	end
+
 end
  
