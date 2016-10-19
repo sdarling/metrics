@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require bootstrap-sprockets
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
@@ -17,7 +18,6 @@
 //= require highcharts-more.js
 //= require tether
 //= require bootstrap
-//= require bootstrap-sprockets
 //= require_tree .
 
-$('.dropdown-toggle').dropdown();
+$('.dropdown-toggle').dropdown(); 
