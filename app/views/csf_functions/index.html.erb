@@ -29,6 +29,8 @@
   </table>
 </div>
 
+<div id="container"></div>
+
 <br>
 
 <h1>Top 3 Recent Metric Values</h1>
@@ -53,6 +55,49 @@
   </table>
 </div>
 
+<script>
+    $(function () {
+
+        $('#container').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+
+            },
+            title: {
+                text: ''
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b> <br><b>${point.y}</b>'
+            },
+            plotOptions: {
+                pie: {
+                    size: 300,
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: '',
+                colorByPoint: true,
+                data: [<% @recent_metrics.each do |m| %>
+                    {name: '<%= m.id %>' , y: <%= m.value.to_i %>},
+                    <% end %>
+
+                ]
+            }]
+        });
+    });
+</script>
 
 
 

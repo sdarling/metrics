@@ -6,7 +6,7 @@ class CsfFunctionsController < ApplicationController
   def index
     @csf_functions = CsfFunction.all
     @score = CsfFunction.all.average(:avg_maturity_level)
-    @recent_metrics = MetricValue.order(:effective_date).reverse_order.limit(3)
+    @recent_metrics = MetricValue.order(:effective_date).reverse_order.limit(5)
   end
 
   # GET /metrics/1
