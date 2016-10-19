@@ -18,6 +18,7 @@
       <tr>
         <th>Metric Name</th>
         <th>Maturity Level</th>
+        <th>Target Maturity Level</th>
       </tr>
     </thead>
 
@@ -26,6 +27,7 @@
         <tr>
           <td><%= link_to metric.name, metric %></td>
           <td><%= metric.recent_maturity_level %></td>
+          <td><%= metric.target_maturity_level %></td>
         </tr>
       <% end %>
     </tbody>

@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160929152735) do
     t.integer  "csf_function_id"
     t.integer  "unit_id"
     t.integer  "recent_maturity_level"
+    t.integer  "target_maturity_level"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end

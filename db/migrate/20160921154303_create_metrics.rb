@@ -6,6 +6,7 @@ class CreateMetrics < ActiveRecord::Migration
       t.integer :csf_function_id
       t.integer :unit_id
       t.integer :recent_maturity_level
+      t.integer :target_maturity_level
       t.timestamps null: false
     end
   end

@@ -12,6 +12,11 @@
 
 
 <p>
+  <strong>Target Maturity Level:</strong>
+  <%= @metric.target_maturity_level %>
+</p>
+
+<p>
   <strong>CSF Function:</strong>
   <%= link_to @metric.csf_function_name, csf_function_path(@metric.csf_function_id) %>
 </p>
