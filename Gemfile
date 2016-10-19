@@ -11,6 +11,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'simple-form-datepicker'
 gem 'font-awesome-sass'
+gem 'lazy_high_charts'
 group :development, :test do
   gem 'byebug'
 end
