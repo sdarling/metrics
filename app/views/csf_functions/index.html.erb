@@ -4,8 +4,14 @@
       <div class="card">
         <h5 class="card-header text-sm-center">Abt Cybersecurity Health Score</h5>
         <div class="card-block text-sm-center">
-          <h4 class="card-text"><%= @score %></h4>
+          <h1 class="card-text"><%= @score %></h1>
         </div>
+          <ul class="list-group list-group-flush">
+          <li class="list-group-item">Tier 1: Partial</li>
+          <li class="list-group-item">Tier 2: Risk Informed</li>
+          <li class="list-group-item">Tier 3: Repeatable</li>
+          <li class="list-group-item">Tier 4: Adaptive</li>          
+        </ul>    
       </div>
     </div>
     <div class="col-sm-9">
@@ -125,6 +131,9 @@
 <script>
   $(function () {
       $('#test').highcharts({
+          chart: {
+            height: 240
+          },  
           title: {
               text: '',
               x: -20 //center
