@@ -4,14 +4,14 @@ class CsfFunctionsController < ApplicationController
   # GET /metrics
   # GET /metrics.json
   def index
-    @csf_functions = CsfFunction.all
+    @csf_functions = CsfFunction.order(:id).all
     @score = CsfFunction.all.average(:avg_maturity_level)
     @recent_metrics = MetricValue.order(:effective_date).reverse_order.limit(5)
-    @identify = CsfFunction.where("id" => 1).first
-    @protect = CsfFunction.where("id" => 2).first
-    @detect = CsfFunction.where("id" => 3).first
-    @respond = CsfFunction.where("id" => 4).first
-    @recover = CsfFunction.where("id" => 5).first
+    @identify_metrics = Metric.where("csf_function_id" => 1)
+    @protect_metrics = Metric.where("csf_function_id" => 2)
+    @detect_metrics = Metric.where("csf_function_id" => 3)
+    @respond_metrics = Metric.where("csf_function_id" => 4)
+    @recover_metrics = Metric.where("csf_function_id" => 5)
     @scores = Score.where("csf_function_id" => nil)
     @metrics = Metric.order(:csf_function_id).all
     @identify_score = Score.where("csf_function_id" => 1)

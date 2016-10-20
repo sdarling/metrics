@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :organizations
   resources :csf_functions
   resources :dashboards
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   root to: 'dashboards#index'
 end
