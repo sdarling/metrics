@@ -13,15 +13,20 @@
 			</li>
 			<li class="nav-item">
 				<a class="btn btn-primary-outline" href="/dashboards">Dashboard</a>
-			</li>			
+			</li>
+		<% if user_signed_in? && current_user.superadmin? %>
+			<li class="nav-item">
+				<a class="btn btn-primary-outline" href="/admin">Admin</a>
+			</li>
+		<% end %>
 		    <li class="nav-item dropdown">
 		      <a class="btn btn-primary-outline dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
 		      	<div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
-		      	<% if user_signed_in? %>
+			<% if user_signed_in? %>
 		        	<a class="dropdown-item" href="/users/sign_out">Logout</a>
-		      	<% else %>
+			<% else %>
 					<a class="dropdown-item" href="/users/sign_in">Login</a>
-				<% end %>
+			<% end %>
 		      </div>
 		    </li>		
 		</ul>

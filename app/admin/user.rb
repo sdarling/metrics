@@ -1,5 +1,17 @@
 ActiveAdmin.register User do
 
+  index do
+    selectable_column
+    id_column 
+    column :firstname
+    column :lastname
+    column :email
+    column :sign_in_count
+    column :last_sign_in_at
+    column :superadmin
+    actions
+  end
+
   form do |f|
     f.inputs "User Details" do
       f.input :email

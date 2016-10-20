@@ -108,6 +108,8 @@ ActiveRecord::Schema.define(version: 20161020184119) do
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.boolean  "superadmin",             default: false, null: false
+    t.string   "firstname",                              null: false
+    t.string   "lastname",                               null: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
   end
