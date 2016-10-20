@@ -1,4 +1,4 @@
-User.create("email" => 'stephen_darling@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
+User.create("email" => 'stephen_darling@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word', "superadmin" => true)
 User.create("email" => 'peter_caulum@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
 User.create("email" => 'brian_gay@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
 User.create("email" => 'ryan_tappis@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
@@ -89,4 +89,4 @@ Score.create("effective_date" => "2016-1-1", "actual_value" => "1.9", "target_va
 Score.create("effective_date" => "2016-1-1", "actual_value" => "2.5", "target_value" => "4", "csf_function_id" => 4)
 Score.create("effective_date" => "2016-1-1", "actual_value" => "1.8", "target_value" => "3", "csf_function_id" => 5)
 Score.create("effective_date" => "2016-1-1", "actual_value" => "1.9", "target_value" => "3", "csf_function_id" => 5)
-Score.create("effective_date" => "2016-1-1", "actual_value" => "2.9", "target_value" => "3", "csf_function_id" => 5)
+Score.create("effective_date" => "2016-1-1", "actual_value" => "2.9", "target_value" => "3", "csf_function_id" => 5)AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
