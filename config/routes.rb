@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
   resources :organizations
   resources :csf_functions
+  resources :dashboards
   devise_for :users
-  root to: 'csf_functions#index'
+  root to: 'dashboards#index'
 end
