@@ -223,6 +223,8 @@
                     <% end %>
             ]
             },{
+            dashStyle: 'dash',
+            type: 'line',
             name: 'Target Value',
             data: [
                     <% @metrics.each do |metric| %>
@@ -288,6 +290,7 @@
                       <% end %>
               ]
           }, {
+              dashStyle: 'dash',              
               name: 'Target',
               data: [
                       <% @identify_score.each do |score| %>
@@ -356,6 +359,7 @@
                       <% end %>
               ]
           }, {
+              dashStyle: 'dash',              
               name: 'Target',
               data: [
                       <% @protect_score.each do |score| %>
@@ -424,6 +428,7 @@
                       <% end %>
               ]
           }, {
+              dashStyle: 'dash',              
               name: 'Target',
               data: [
                       <% @detect_score.each do |score| %>
@@ -492,6 +497,7 @@
                       <% end %>
               ]
           }, {
+              dashStyle: 'dash',              
               name: 'Target',
               data: [
                       <% @respond_score.each do |score| %>
@@ -560,6 +566,7 @@
                       <% end %>
               ]
           }, {
+              dashStyle: 'dash',              
               name: 'Target',
               data: [
                       <% @recover_score.each do |score| %>

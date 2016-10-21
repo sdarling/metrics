@@ -16,6 +16,15 @@
 
 .open .dropdown-menu{display:block;}
 
+#tablePanelBody {
+    padding: 0;
+}
+
+thead th {
+	background-color: grey;
+    color: white;
+}
+
 .col-xs-15,
 .col-sm-15,
 .col-md-15,
