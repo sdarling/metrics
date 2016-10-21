@@ -16,11 +16,25 @@
 
 .open .dropdown-menu{display:block;}
 
+.list-group { 
+    margin: 0; 
+    width: 100%;
+ }
+
+a {
+text-decoration: none !important;
+}
+
 #tablePanelBody {
     padding: 0;
 }
 
 thead th {
+	background-color: grey;
+    color: white;
+}
+
+#grey-bg {
 	background-color: grey;
     color: white;
 }

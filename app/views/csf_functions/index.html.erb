@@ -1,175 +1,110 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-6">
       <div class="card">
         <div class="card-header text-xs-center" id="identify-card"><b>Identify</b></div>
-          <div id="tablePanelBody" class="card-block">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Metric Name</th>
-                  <th>Maturity Level</th>
-                  <th>Target Maturity Level</th>
-                  <th>First Entry</th>
-                  <th>Recent Entry</th>
-                  <th># Entries</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <% @identify_metrics.each do |metric| %>
-                  <tr>
-                    <td><%= link_to metric.name, metric %></td>
-                    <td><%= metric.recent_maturity_level %></td>
-                    <td><%= metric.target_maturity_level %></td>
-                    <td><%= metric.first_entry.strftime("%m/%d/%Y") %></td>
-                    <td><%= metric.recent_entry.strftime("%m/%d/%Y") %></td>
-                    <td><%= metric.num_entries %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
+          <div class="card-block">
+            <p>The organization's effectiveness in managing cybersecurity risk to systems, assets, data, and capabilities.
+            </p>
+          </div>
+          <div class="card-footer text-xs-center">
+            <a class="btn btn-primary" id="identify-card" href="/csf_functions/1" role="button">More</a>
           </div>
       </div>
     </div>
+    <div class="col-xs-6">
+      <div>
+            <p>Sample text for the card block</p>
+            <p>Sample line two for the card block</p>
+            <p>Sample line three for the card block</p>
+      </div>
+    </div>    
   </div>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-6">
       <div class="card">
         <div class="card-header text-xs-center" id="protect-card"><b>Protect</b></div>
-          <div id="tablePanelBody" class="card-block">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Metric Name</th>
-                  <th>Maturity Level</th>
-                  <th>Target Maturity Level</th>
-                  <th>First Entry</th>
-                  <th>Recent Entry</th>
-                  <th># Entries</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <% @protect_metrics.each do |metric| %>
-                  <tr>
-                    <td><%= link_to metric.name, metric %></td>
-                    <td><%= metric.recent_maturity_level %></td>
-                    <td><%= metric.target_maturity_level %></td>
-                    <td><%= metric.first_entry.strftime("%m/%d/%Y") %></td>
-                    <td><%= metric.recent_entry.strftime("%m/%d/%Y") %></td>
-                    <td><%= metric.num_entries %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
+          <div class="card-block">
+            <p>The organization's effectiveness in implementing the appropriate safeguards to ensure delivery of critical infrastructure services.
+            </p>
+          </div>
+          <div class="card-footer text-xs-center">
+            <a class="btn btn-primary" id="protect-card" href="/csf_functions/2" role="button">More</a>
           </div>
       </div>
     </div>
+    <div class="col-xs-6">
+      <div>
+            <p>Sample text for the card block</p>
+            <p>Sample line two for the card block</p>
+            <p>Sample line three for the card block</p>
+      </div>
+    </div>    
   </div>
-  
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-6">
       <div class="card">
         <div class="card-header text-xs-center" id="detect-card"><b>Detect</b></div>
-          <div id="tablePanelBody" class="card-block">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Metric Name</th>
-                  <th>Maturity Level</th>
-                  <th>Target Maturity Level</th>
-                  <th>First Entry</th>
-                  <th>Recent Entry</th>
-                  <th># Entries</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <% @detect_metrics.each do |metric| %>
-                  <tr>
-                    <td><%= link_to metric.name, metric %></td>
-                    <td><%= metric.recent_maturity_level %></td>
-                    <td><%= metric.target_maturity_level %></td>
-                    <td><%= metric.first_entry.strftime("%m/%d/%Y") %></td>
-                    <td><%= metric.recent_entry.strftime("%m/%d/%Y") %></td>
-                    <td><%= metric.num_entries %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
+          <div class="card-block">
+            <p>The organization's effectiveness in implementing the appropriate activities to identify the occurrence of a cybersecurity event.
+            </p>
+          </div>
+          <div class="card-footer text-xs-center">
+            <a class="btn btn-primary" id="detect-card" href="/csf_functions/3" role="button">More</a>
           </div>
       </div>
     </div>
-  </div>
+    <div class="col-xs-6">
+      <div>
+            <p>Sample text for the card block</p>
+            <p>Sample line two for the card block</p>
+            <p>Sample line three for the card block</p>
+      </div>
+    </div>    
+  </div>  
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-6">
       <div class="card">
         <div class="card-header text-xs-center" id="respond-card"><b>Respond</b></div>
-          <div id="tablePanelBody" class="card-block">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Metric Name</th>
-                  <th>Maturity Level</th>
-                  <th>Target Maturity Level</th>
-                  <th>First Entry</th>
-                  <th>Recent Entry</th>
-                  <th># Entries</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <% @respond_metrics.each do |metric| %>
-                  <tr>
-                    <td><%= link_to metric.name, metric %></td>
-                    <td><%= metric.recent_maturity_level %></td>
-                    <td><%= metric.target_maturity_level %></td>
-                    <td><%= metric.first_entry.strftime("%m/%d/%Y") %></td>
-                    <td><%= metric.recent_entry.strftime("%m/%d/%Y") %></td>
-                    <td><%= metric.num_entries %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
+          <div class="card-block">
+            <p>The organization's effectiveness in implementing the appropriate activities to take action regarding a detected cybersecurity event.
+            </p>
+          </div>
+          <div class="card-footer text-xs-center">
+            <a class="btn btn-primary" id="respond-card" href="/csf_functions/4" role="button">More</a>
           </div>
       </div>
     </div>
-  </div>
+    <div class="col-xs-6">
+      <div>
+            <p>Sample text for the card block</p>
+            <p>Sample line two for the card block</p>
+            <p>Sample line three for the card block</p>
+      </div>
+    </div>    
+  </div>   
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-6">
       <div class="card">
         <div class="card-header text-xs-center" id="recover-card"><b>Recover</b></div>
-          <div id="tablePanelBody" class="card-block">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Metric Name</th>
-                  <th>Maturity Level</th>
-                  <th>Target Maturity Level</th>
-                  <th>First Entry</th>
-                  <th>Recent Entry</th>
-                  <th># Entries</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <% @recover_metrics.each do |metric| %>
-                  <tr>
-                    <td><%= link_to metric.name, metric %></td>
-                    <td><%= metric.recent_maturity_level %></td>
-                    <td><%= metric.target_maturity_level %></td>
-                    <td><%= metric.first_entry.strftime("%m/%d/%Y") %></td>
-                    <td><%= metric.recent_entry.strftime("%m/%d/%Y") %></td>
-                    <td><%= metric.num_entries %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
+          <div class="card-block">
+            <p>The organization's effectiveness in implementing the appropriate activities to maintain plans for resilience and to restore any capabilities or services that were impaired due to a cybersecurity event.
+            </p>
+          </div>
+          <div class="card-footer text-xs-center">
+            <a class="btn btn-primary" id="recover-card" href="/csf_functions/5" role="button">More</a>
           </div>
       </div>
     </div>
-  </div>      
+    <div class="col-xs-6">
+      <div>
+            <p>Sample text for the card block</p>
+            <p>Sample line two for the card block</p>
+            <p>Sample line three for the card block</p>
+      </div>
+    </div>    
+  </div>   
+  
 </div>
 
 

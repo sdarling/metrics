@@ -2,38 +2,38 @@
   <div class="row">
     <div class="col-xs-3">
       <div class="card">
-        <h5 class="card-header text-xs-center">Abt Cybersecurity Health Score</h5>
+        <h5 class="card-header text-xs-center" id="grey-bg">Abt Cybersecurity Health Score</h5>
         <div class="card-block text-xs-center">
           <h1 class="card-text"><%= @score %></h1>
         </div>
           <ul class="list-group list-group-flush">
           <% if @score.between?(1,2) %>
-            <li class="list-group-item"><b>Tier 1: Partial</b></li>
+            <li class="list-group-item" id="grey-bg">Tier 1: Partial</li>
             <li class="list-group-item">Tier 2: Risk Informed</li>
             <li class="list-group-item">Tier 3: Repeatable</li>
             <li class="list-group-item">Tier 4: Adaptive</li>  
           <% elsif @score.between?(2,3) %>  
             <li class="list-group-item">Tier 1: Partial</li>
-            <li class="list-group-item"><b>Tier 2: Risk Informed</b></li>
+            <li class="list-group-item" id="grey-bg">Tier 2: Risk Informed</li>
             <li class="list-group-item">Tier 3: Repeatable</li>
             <li class="list-group-item">Tier 4: Adaptive</li> 
           <% elsif @score > 3 && @score < 4 %> 
             <li class="list-group-item">Tier 1: Partial</li>
             <li class="list-group-item">Tier 2: Risk Informed</li>
-            <li class="list-group-item"><b>Tier 3: Repeatable</b></li>
+            <li class="list-group-item" id="grey-bg">Tier 3: Repeatable</li>
             <li class="list-group-item">Tier 4: Adaptive</li>  
           <% elsif @score = 4 %>
             <li class="list-group-item">Tier 1: Partial</li>
             <li class="list-group-item">Tier 2: Risk Informed</li>
             <li class="list-group-item">Tier 3: Repeatable</li>
-            <li class="list-group-item"><b>Tier 4: Adaptive</b></li>  
+            <li class="list-group-item" id="grey-bg">Tier 4: Adaptive</li>  
           <% end %>                                    
         </ul>    
       </div>
     </div>
     <div class="col-xs-9">
       <div class="card">
-        <h5 class="card-header text-xs-center">Current Score by Quarter</h5>
+        <h5 class="card-header text-xs-center" id="grey-bg">Current Score by Quarter</h5>
         <div class="card-block text-xs-center">
           <div id="score-timeseries" >
           </div>
@@ -101,7 +101,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="card">
-        <h5 class="card-header text-sm-center">CSF KPI Current Score and Targets</h5> 
+        <h5 class="card-header text-sm-center" id="grey-bg">CSF KPI Current Score and Targets</h5> 
           <div id="scores-bar"></div>
       </div>    
     </div>  
