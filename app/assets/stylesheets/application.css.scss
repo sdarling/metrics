@@ -59,6 +59,20 @@ thead th {
 	color: white
 }
 
+#identify-button {
+    background: white;
+    color: #006fb3;
+    border-style: solid;
+    border-color: #006fb3;
+}
+
+#identify-button:hover {
+    background: #006fb3;
+    color: white;
+    border-style: solid;
+    border-color: #006fb3;
+}
+
 #identify-table-header {
     background-color: #006fb3;
 }
@@ -68,8 +82,37 @@ thead th {
 	color: white
 }
 
+#protect-button {
+    background: white;
+    color: #7f3f98;
+    border-style: solid;
+    border-color: #7f3f98;
+}
+
+#protect-button:hover {
+    background: #7f3f98;
+    color: white;
+    border-style: solid;
+    border-color: #7f3f98;
+}
+
 #detect-card {
-	background: #ffdf16
+	background: #ffdf16;
+    color: white;
+}
+
+#detect-button {
+    background: white;
+    color: #ffdf16;
+    border-style: solid;
+    border-color: #ffdf16;
+}
+
+#detect-button:hover {
+    background: #ffdf16;
+    color: white;
+    border-style: solid;
+    border-color: #ffdf16;
 }
 
 #respond-card {
@@ -77,7 +120,35 @@ thead th {
 	color: white
 }
 
+#respond-button {
+    background: white;
+    color: #ed1c24;
+    border-style: solid;
+    border-color: #ed1c24;
+}
+
+#respond-button:hover {
+    background: #ed1c24;
+    color: white;
+    border-style: solid;
+    border-color: #ed1c24;
+}
+
 #recover-card {
 	background: #0ba24b;
 	color: white
+}
+
+#recover-button {
+    background: white;
+    color: #0ba24b;
+    border-style: solid;
+    border-color: #0ba24b;
+}
+
+#recover-button:hover {
+    background: #0ba24b;
+    color: white;
+    border-style: solid;
+    border-color: #0ba24b;
 }
