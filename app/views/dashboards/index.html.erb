@@ -210,7 +210,18 @@
             column: {
                 pointPadding: 0.2,
                 borderWidth: 0
-            }
+            },
+            series: {
+                cursor: 'pointer',
+                point: {
+                  events: {
+                    click: function() {
+                      window.location.href = this.options.ownURL
+                    }
+                  }
+                }
+
+              }            
         },
         credits: {
           enabled: false
@@ -219,7 +230,8 @@
             name: 'Recent Value',
             data: [
                     <% @metrics.each do |metric| %>
-                      {y: <%= metric.recent_maturity_level %>, color: '#<%= metric.hex_color %>'},
+                      {y: <%= metric.recent_maturity_level %>, color: '#<%= metric.hex_color %>',
+                       ownURL: '/metrics/<%= metric.id %>'},
                     <% end %>
             ]
             },{
