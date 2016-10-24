@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ body { 
+    padding-top: 65px; 
+}
+
 .open .dropdown-menu{display:block;}
 
 .list-group { 

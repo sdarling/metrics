@@ -13,6 +13,7 @@ class MetricsController < ApplicationController
     @metric = Metric.find(params[:id])
     @metric_values = MetricValue.where("metric_id" => params[:id])
     @metric_value = MetricValue.new
+    @mat_level = MaturityLevel.where("metric_id" => params[:id])
   end
 
   # GET /metrics/new

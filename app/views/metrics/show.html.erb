@@ -3,8 +3,8 @@
     <div class="col-xs-6"> 
 
       <div class="card">
+        <h5 class="card-header text-xs-center"><%= @metric.name %></h5>
         <div class="card-block">
-          <h4 class="card-title"><%= @metric.name %></h4>
           <p class="card-text">INSERT DESCRIPTION TEXT HERE</p>
           <p>
             <strong>Recent Maturity Level:</strong>
@@ -36,7 +36,27 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-6">
+
+      <table class="table">
+        <thead>
+          <tr class="text-xs-center">
+            <th class="text-xs-center">Maturity Level</th>
+            <th>Low</th>
+            <th>High</th>
+          </tr>
+        </thead>
+        <tbody>
+      <% @mat_level.each do |value| %>        
+          <td class="text-xs-center"><%= value.weighted_value %></td>
+          <td><%= value.low %></td>
+          <td><%= value.high %></td>
+        </tbody>
+      <% end %>
+      </table>
+
+    </div>
+    <div class="col-xs-6">
       <%= render 'values' %>
     </div>
   </div>
