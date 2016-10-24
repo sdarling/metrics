@@ -1,64 +1,120 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6"> 
 
-<div class="card">
-  <div class="card-block">
-    <h4 class="card-title"><%= @metric.name %></h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title"><%= @metric.name %></h4>
+          <p class="card-text">INSERT DESCRIPTION TEXT HERE</p>
+          <p>
+            <strong>Recent Maturity Level:</strong>
+            <%= @metric.recent_maturity_level %>
+          </p>
+          <p>
+            <strong>Target Maturity Level:</strong>
+            <%= @metric.target_maturity_level %>
+          </p>
+
+          <p>
+            <strong>CSF Function:</strong>
+            <%= link_to @metric.csf_function_name, csf_function_path(@metric.csf_function_id) %>
+          </p>
+          <br/>
+          <%= link_to 'Edit', edit_metric_path(@metric) %> |
+          <%= link_to 'Back', metrics_path %>
+          <br/>
+          <br/>
+
+
+
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div id="metric-recentvalues">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <%= render 'values' %>
+    </div>
   </div>
 </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @metric.name %>
-</p>
-
-<p>
-  <strong>Recent Maturity Level:</strong>
-  <%= @metric.recent_maturity_level %>
-</p>
-
-
-<p>
-  <strong>Target Maturity Level:</strong>
-  <%= @metric.target_maturity_level %>
-</p>
-
-<p>
-  <strong>CSF Function:</strong>
-  <%= link_to @metric.csf_function_name, csf_function_path(@metric.csf_function_id) %>
-</p>
-<br/>
-<%= link_to 'Edit', edit_metric_path(@metric) %> |
-<%= link_to 'Back', metrics_path %>
-<br/>
-<br/>
 
 
 
 
-<div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Value</th>
-        <th>Maturity Level</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @metric_values.each do |values| %>
-        <tr>
-          <td><%= values.effective_date %></td>
-          <td><%= values.value %></td>
-          <td><%= values.maturity_level %>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-<br>
 
-<%= render 'values' %>
+
+
+
+
+
+
+
+<script>
+  $(function () {
+      $('#metric-recentvalues').highcharts({
+          chart: {
+            height: 240,
+          },  
+          title: {
+              text: '',
+              x: -20 //center
+          },
+          subtitle: {
+              text: '',
+              x: -20
+          },
+          xAxis: {
+              categories: [
+                            <% @metric_values.each do |date| %>
+                              '<%= date.effective_date.strftime("%m/%d/%Y") %>',
+                            <% end %>
+              ]
+          },
+          yAxis: {
+              title: {
+                  text: 'Health Score'
+              },
+              plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+              }]
+          },
+          tooltip: {
+              valueSuffix: ''
+          },
+          legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle',
+              borderWidth: 0
+          },
+          series: [{
+              name: 'Actual',
+              data: [
+                      <% @metric_values.each do |score| %>
+                        <%= score.value %>,
+                      <% end %>
+              ]
+          }, {
+              name: 'Target',
+              data: [
+                      <% @metric_values.each do |score| %>
+                        <%= score.value %>,
+                      <% end %>
+              ],
+              dashStyle: 'dash'
+          }],
+          credits: {
+            enabled: false
+          }
+      });
+  });
+</script>
 
 
