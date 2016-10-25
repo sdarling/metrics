@@ -1,0 +1,33 @@
+<div class="modal fade" id="Modal-MaturityLevel" tabindex="-1" role="dialog" aria-labelledby="Modal-MaturityLevel-Label"  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="Modal-MaturityLevel-Label"><%= @metric.name %> Maturity Levels</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr class="text-xs-center">
+              <th class="text-xs-center">Maturity Level</th>
+              <th>Low</th>
+              <th>High</th>
+            </tr>
+          </thead>
+          <tbody>
+        <% @mat_level.each do |value| %>        
+            <td class="text-xs-center"><%= value.weighted_value %></td>
+            <td><%= value.low %></td>
+            <td><%= value.high %></td>
+          </tbody>
+        <% end %>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>    
+</div>  

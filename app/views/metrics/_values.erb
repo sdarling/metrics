@@ -1,11 +1,2 @@
-<%= simple_form_for [@metric, @metric_value], :html => { :class => 'form-inline' } do |f| %>
 
-
-	<%= f.input :effective_date, as: :string, input_html: { class: "datepicker" } %>
-    <%= f.label :value, "Metric Value" %>
-    <%= f.input :value %>
-    <%= f.hidden_field :metric_id, value: @metric.id %>    
-    <%= f.button :submit, 'Create' %>
-
-<% end %>
 
