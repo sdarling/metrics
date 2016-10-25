@@ -18,6 +18,9 @@
 //= require highcharts-more.js
 //= require tether
 //= require bootstrap
+//= require underscore
+//= require json2
+//= require judge
 //= require_tree .
 
 $('.dropdown-toggle').dropdown(); 
