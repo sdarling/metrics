@@ -4,6 +4,7 @@ class MetricValue < ActiveRecord::Base
 	after_create :set_maturity_level
 	after_create :set_recent_maturity_level
 	after_create :set_csf_maturity_level
+	validates :effective_date, :presence => true
 
 
 	def month_name

@@ -11,7 +11,7 @@
 
           <%= simple_form_for [@metric, @metric_value], :html => { :class => 'form-horizontal' }, :wrapper => :inline_form do |f| %>
 
-              <%= f.input :effective_date, as: :string, input_html: { class: "datepicker", style: "width: 200px; margin: 0 auto; text-align: center" }, placeholder: "Effective Date" %>
+              <%= f.input :effective_date, as: :string, :validate => true, input_html: { class: "datepicker", style: "width: 200px; margin: 0 auto; text-align: center" }, placeholder: "Effective Date" %>
               <%= f.input :value, input_html: { style: "width: 200px; margin: 0 auto; text-align: center"  }, placeholder: "New Value" %>
               <%= f.hidden_field :metric_id, value: @metric.id %>  
 
@@ -19,7 +19,7 @@
       </div>
       <div class="modal-footer text-xs-center">
         <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-         <i class="icon-ok icon-white"></i> Add New Value
+         <i class="fa fa-floppy-o" aria-hidden="true"></i>
         <% end %>
       </div>
         <% end %>

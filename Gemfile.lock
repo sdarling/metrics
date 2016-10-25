@@ -93,6 +93,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.7.0)
+    font-awesome-rails (4.7.0.0)
+      railties (>= 3.2, < 5.1)
     font-awesome-sass (4.6.2)
       sass (>= 3.2)
     formtastic (3.1.4)
@@ -121,6 +123,11 @@ GEM
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.3)
+    judge (2.1.1)
+      rails (>= 3.1)
+    judge-simple_form (1.0.0)
+      judge (~> 2.0)
+      simple_form (>= 2.0)
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -230,10 +237,12 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  font-awesome-rails
   font-awesome-sass
   high_voltage
   jbuilder (~> 2.0)
   jquery-rails
+  judge-simple_form
   lazy_high_charts
   pg
   rails (= 4.2.6)
