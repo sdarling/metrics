@@ -8,12 +8,13 @@
         <h4 class="modal-title" id="myModalLabel"><%= @metric.name %> - Add New Value </h4>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [@metric, @metric_value] do |f| %>
 
-            <%= f.input :effective_date, as: :string, label: 'Effective Date', input_html: { class: "datepicker" } %>
-            <%= f.label :value, "Metric Value" %>
-            <%= f.input :value %>
-            <%= f.hidden_field :metric_id, value: @metric.id %>  
+          <%= simple_form_for [@metric, @metric_value] do |f| %>
+
+              <%= f.input :effective_date, as: :string, input_html: { class: "datepicker", style: "width: 200px" }, label: "Effective Date", label_html: { class: "h5"} %>
+              <%= f.input :value, label: "New Value", input_html: { style: "width: 200px" }, label_html: { class: "h5" } %>
+              <%= f.hidden_field :metric_id, value: @metric.id %>  
+
 
       </div>
       <div class="modal-footer">
