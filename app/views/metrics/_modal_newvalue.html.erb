@@ -1,23 +1,23 @@
 <div class="modal fade" id="Modal-NewValue" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title" id="myModalLabel"><%= @metric.name %> - Add New Value </h4>
+        <h4 class="modal-title text-xs-center" id="myModalLabel">Add New Value</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body form-horizontal">
 
-          <%= simple_form_for [@metric, @metric_value] do |f| %>
+          <%= simple_form_for [@metric, @metric_value], :html => { :class => 'form-horizontal' }, :wrapper => :inline_form do |f| %>
 
-              <%= f.input :effective_date, as: :string, input_html: { class: "datepicker", style: "width: 200px" }, label: "Effective Date", label_html: { class: "h5"} %>
-              <%= f.input :value, label: "New Value", input_html: { style: "width: 200px" }, label_html: { class: "h5" } %>
+              <%= f.input :effective_date, as: :string, input_html: { class: "datepicker", style: "width: 200px; margin: 0 auto; text-align: center" }, placeholder: "Effective Date" %>
+              <%= f.input :value, input_html: { style: "width: 200px; margin: 0 auto; text-align: center"  }, placeholder: "New Value" %>
               <%= f.hidden_field :metric_id, value: @metric.id %>  
 
 
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer text-xs-center">
         <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
          <i class="icon-ok icon-white"></i> Add New Value
         <% end %>
