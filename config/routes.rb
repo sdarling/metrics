@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :dashboards
   devise_for :users, :controllers => { registrations: 'registrations' }
   root to: 'dashboards#index'
+  mount Judge::Engine => '/judge'
 end
