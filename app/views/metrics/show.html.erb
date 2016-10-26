@@ -45,7 +45,20 @@
       </button>      
     </div>
     <div class="col-xs-6">
-      <%= render 'values' %>
+      <table class="table">
+        <thead>
+          <tr class="text-xs-center">
+            <th>Effective Date</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+      <% @metric_values.each do |value| %>        
+          <td><%= value.effective_date %></td>
+          <td><%= value.value %></td>
+        </tbody>
+      <% end %>
+      </table>      
     </div>
   </div>
 </div>
@@ -53,13 +66,6 @@
 
 <%= render 'modal_maturitylevel' %>    
 <%= render 'modal_newvalue' %>
-
-
-
-
-
-
-
 
 
 
