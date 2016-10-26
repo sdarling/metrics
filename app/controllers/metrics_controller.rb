@@ -44,6 +44,7 @@ class MetricsController < ApplicationController
   # PATCH/PUT /metrics/1
   # PATCH/PUT /metrics/1.json
   def update
+    @metric = Metric.find(params[:id])    
     respond_to do |format|
       if @metric.update(metric_params)
         format.html { redirect_to @metric, notice: 'Metric was successfully updated.' }
