@@ -2,6 +2,7 @@ class CreateMetrics < ActiveRecord::Migration
   def change
     create_table :metrics do |t|
       t.string :name
+      t.text :description
       t.integer :organization_id
       t.integer :csf_function_id
       t.integer :unit_id

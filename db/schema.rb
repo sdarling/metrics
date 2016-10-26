@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20161020184119) do
 
   create_table "metrics", force: :cascade do |t|
     t.string   "name"
+    t.text     "description"
     t.integer  "organization_id"
     t.integer  "csf_function_id"
     t.integer  "unit_id"

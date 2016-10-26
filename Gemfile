@@ -16,6 +16,7 @@ gem 'font-awesome-sass'
 gem 'font-awesome-rails'
 gem 'lazy_high_charts'
 gem 'rails-assets-tether', '>= 1.1.0'
+gem 'best_in_place'
 group :development, :test do
   gem 'byebug'
 end

@@ -48,6 +48,7 @@ Metric.create("name" => "Training and Awareness", "csf_function_id" => 2, "unit_
 	MetricValue.create("metric_id" => i.id, "value" => "20", "effective_date" => "2016-2-1")
 	MetricValue.create("metric_id" => i.id, "value" => "30", "effective_date" => "2016-3-1")
 
+	Metric.update_all("description" => "SAMPLE DESCRIPTION FOR METRIC")
 end
 
 @value = MetricValue.all

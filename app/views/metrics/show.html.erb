@@ -3,9 +3,9 @@
     <div class="col-xs-6"> 
 
       <div class="card">
-        <h5 class="card-header text-xs-center"><%= @metric.name %></h5>
+        <h5 class="card-header text-xs-center"><%= best_in_place @metric, :name %></h5>
         <div class="card-block">
-          <p class="card-text">INSERT DESCRIPTION TEXT HERE</p>
+          <p class="card-text"><%= best_in_place @metric, :description %></p>
           <p>
             <strong>Recent Maturity Level:</strong>
             <%= @metric.recent_maturity_level %>
@@ -54,8 +54,8 @@
         </thead>
         <tbody>
       <% @metric_values.each do |value| %>        
-          <td><%= value.effective_date %></td>
-          <td><%= value.value %></td>
+          <td><%= best_in_place value, :effective_date, :url => metric_metric_value_path(@metric, value)%></td>
+          <td><%= best_in_place value, :value, :url => metric_metric_value_path(@metric, value) %></td>
         </tbody>
       <% end %>
       </table>      

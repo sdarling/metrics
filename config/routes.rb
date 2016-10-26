@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :metrics do
-  	resources :metric_values 
+  	resources :metric_values
   end
   resources :organizations
   resources :csf_functions

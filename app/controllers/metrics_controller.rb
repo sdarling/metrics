@@ -11,7 +11,7 @@ class MetricsController < ApplicationController
   # GET /metrics/1.json
   def show
     @metric = Metric.find(params[:id])
-    @metric_values = MetricValue.where("metric_id" => params[:id])
+    @metric_values = MetricValue.where("metric_id" => params[:id]).order(:effective_date)
     @metric_value = MetricValue.new
     @mat_level = MaturityLevel.where("metric_id" => params[:id])
   end
@@ -47,7 +47,7 @@ class MetricsController < ApplicationController
     respond_to do |format|
       if @metric.update(metric_params)
         format.html { redirect_to @metric, notice: 'Metric was successfully updated.' }
-        format.json { render :show, status: :ok, location: @metric }
+        format.json { respond_with_bip(@metric) }
       else
         format.html { render :edit }
         format.json { render json: @metric.errors, status: :unprocessable_entity }

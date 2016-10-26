@@ -41,10 +41,11 @@ class MetricValuesController < ApplicationController
   # PATCH/PUT /metrics/1
   # PATCH/PUT /metrics/1.json
   def update
+    @metric_value = MetricValue.find(params[:id])
     respond_to do |format|
-      if @metric_value.update(metric_params)
+      if @metric_value.update(metric_value_params)
         format.html { redirect_to @metric, notice: 'Metric was successfully updated.' }
-        format.json { render :show, status: :ok, location: @metric_value }
+        format.json { respond_with_bip(@metric_value) }
       else
         format.html { render :edit }
         format.json { render json: @metric_value.errors, status: :unprocessable_entity }
