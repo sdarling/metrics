@@ -43,7 +43,8 @@
   </div>
   <div class="row">
     <div class="col-xs-15">
-        <div class="card">
+    <%= link_to csf_function_path(@identify.id) do %>
+      <div class="card">
           <h5 class="card-header text-xs-center" id="identify-card">Identify</h5>  
           <div class="card-block text-xs-center">
             <h5 class="card-text"><%= @identify.avg_maturity_level %></h5>
@@ -51,9 +52,11 @@
           <div class="card-footer">
             <div id="identify"></div>
           </div>
-        </div>
+      </div>
+    <% end %>
     </div>
     <div class="col-xs-15">
+    <%= link_to csf_function_path(@protect.id) do %>    
       <div class="card">
         <h5 class="card-header text-xs-center" id="protect-card">Protect</h5>      
         <div class="card-block text-xs-center">
@@ -63,8 +66,10 @@
           <div id="protect"></div>
         </div>
       </div>
+    <% end %>
     </div>
     <div class="col-xs-15">
+    <%= link_to csf_function_path(@detect.id) do %>    
       <div class="card">
         <h5 class="card-header text-xs-center" id="detect-card">Detect</h5>      
         <div class="card-block text-xs-center">
@@ -74,8 +79,10 @@
           <div id="detect"></div>
         </div>
       </div>
+    <% end %>
     </div>
     <div class="col-xs-15">
+    <%= link_to csf_function_path(@respond.id) do %>    
       <div class="card">
         <h5 class="card-header text-xs-center" id="respond-card">Respond</h5>      
         <div class="card-block text-xs-center">
@@ -85,8 +92,10 @@
           <div id="respond"></div>
         </div>
       </div>
+    <% end %>
     </div>
     <div class="col-xs-15">
+    <%= link_to csf_function_path(@recover.id) do %>    
       <div class="card">
         <h5 class="card-header text-xs-center" id="recover-card">Recover</h5>      
         <div class="card-block text-xs-center">
@@ -96,6 +105,7 @@
           <div id="recover"></div>
         </div>
       </div>
+    <% end %>
     </div>
   </div>
   <div class="row">
