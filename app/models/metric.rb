@@ -17,6 +17,11 @@ class Metric < ActiveRecord::Base
 		@recent.effective_date
 	end
 
+	def recent_value
+		@recent = MetricValue.where("metric_id" => self.id).order(:effective_date).reverse_order.first
+		@recent.value
+	end
+
 	def num_entries
 		MetricValue.where("metric_id" => self.id).count(:id)
 	end

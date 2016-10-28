@@ -14,7 +14,7 @@ class MetricValuesController < ApplicationController
 
   # GET /metrics/new
   def new
-    @metric_value = Metric.new
+    @metric_value = MetricValue.new(metric_value_params)
   end
 
   # GET /metrics/1/edit
@@ -29,7 +29,7 @@ class MetricValuesController < ApplicationController
 
     respond_to do |format|
       if @metric_value.save
-        format.html { redirect_to @metric, notice: 'Metric was successfully created.' }
+        format.html { redirect_to :back }
         format.json { render :show, status: :created, location: @metric_value }
       else
         format.html { render :new }

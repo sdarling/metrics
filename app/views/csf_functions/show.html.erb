@@ -19,6 +19,9 @@
         <th>Metric Name</th>
         <th>Maturity Level</th>
         <th>Target Maturity Level</th>
+        <th>Recent Value</th>
+        <th>New Value</th>
+        <th></th>
       </tr>
     </thead>
 
@@ -28,8 +31,17 @@
           <td><%= link_to metric.name, metric %></td>
           <td><%= metric.recent_maturity_level %></td>
           <td><%= metric.target_maturity_level %></td>
+          <td><%= metric.recent_value %></td>
+          <td id="multiform">
+            <%= form_for ([metric, @metric_value]) do |m| %>
+            <%= m.text_field :value %>
+            <%= m.hidden_field :metric_id, :value => metric.id %>
+            <%= m.hidden_field :effective_date, :value => DateTime.now %>
+          </td>
         </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
 </div>
+

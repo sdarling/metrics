@@ -26,7 +26,8 @@ class CsfFunctionsController < ApplicationController
   # GET /metrics/1.json
   def show
     @csf_function = CsfFunction.find(params[:id])
-    @metrics = Metric.where("csf_function_id" => params[:id])
+    @metrics = Metric.where("csf_function_id" => params[:id]).order(:id)
+    @metric_value = MetricValue.new    
   end
 
   # GET /metrics/new
