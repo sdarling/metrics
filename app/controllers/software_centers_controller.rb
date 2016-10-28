@@ -6,15 +6,11 @@ class SoftwareCentersController < InheritedResources::Base
 
 	filename = 'sccm_sample.xml'
 
-	require 'nokogiri'
+	object_hash = Hash.from_xml(File.read(filename))
 
-	doc = Nokogiri::XML(File.open("sccm_sample.xml"))
-	details = doc.xpath("//Detail_Collection")
+	new_hash = object_hash['Report']['Table0']['Detail_Collection']['Detail']
 
-	hashed = Hash.from_xml(details.to_s)
-
-	@show_this = hashed 
-
+	@show_this = new_hash["CompliancePercentage"]
 	
 
 
