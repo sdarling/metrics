@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @software_center.category %>
+</p>
+
+<p>
+  <strong>Targeter:</strong>
+  <%= @software_center.targeter %>
+</p>
+
+<p>
+  <strong>Failed:</strong>
+  <%= @software_center.failed %>
+</p>
+
+<p>
+  <strong>Unknown:</strong>
+  <%= @software_center.unknown %>
+</p>
+
+<p>
+  <strong>Non compliant:</strong>
+  <%= @software_center.non_compliant %>
+</p>
+
+<p>
+  <strong>Compliant:</strong>
+  <%= @software_center.compliant %>
+</p>
+
+<p>
+  <strong>Collection name:</strong>
+  <%= @software_center.collection_name %>
+</p>
+
+<p>
+  <strong>Compliance percentage:</strong>
+  <%= @software_center.compliance_percentage %>
+</p>
+
+<p>
+  <strong>Target compliant percentage:</strong>
+  <%= @software_center.target_compliant_percentage %>
+</p>
+
+<p>
+  <strong>Configuration baseline revision:</strong>
+  <%= @software_center.configuration_baseline_revision %>
+</p>
+
+<p>
+  <strong>Conviguration baseline name:</strong>
+  <%= @software_center.conviguration_baseline_name %>
+</p>
+
+<%= link_to 'Edit', edit_software_center_path(@software_center) %> |
+<%= link_to 'Back', software_centers_path %>

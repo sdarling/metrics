@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020184119) do
+ActiveRecord::Schema.define(version: 20161028202510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,22 @@ ActiveRecord::Schema.define(version: 20161020184119) do
     t.integer  "csf_function_id"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+  end
+
+  create_table "software_centers", force: :cascade do |t|
+    t.string   "category"
+    t.integer  "targeter"
+    t.integer  "failed"
+    t.integer  "unknown"
+    t.integer  "non_compliant"
+    t.integer  "compliant"
+    t.string   "collection_name"
+    t.string   "compliance_percentage"
+    t.string   "target_compliant_percentage"
+    t.string   "configuration_baseline_revision"
+    t.string   "conviguration_baseline_name"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "units", force: :cascade do |t|

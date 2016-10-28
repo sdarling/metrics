@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Software Centers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Targeter</th>
+      <th>Failed</th>
+      <th>Unknown</th>
+      <th>Non compliant</th>
+      <th>Compliant</th>
+      <th>Collection name</th>
+      <th>Compliance percentage</th>
+      <th>Target compliant percentage</th>
+      <th>Configuration baseline revision</th>
+      <th>Conviguration baseline name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @software_centers.each do |software_center| %>
+      <tr>
+        <td><%= software_center.category %></td>
+        <td><%= software_center.targeter %></td>
+        <td><%= software_center.failed %></td>
+        <td><%= software_center.unknown %></td>
+        <td><%= software_center.non_compliant %></td>
+        <td><%= software_center.compliant %></td>
+        <td><%= software_center.collection_name %></td>
+        <td><%= software_center.compliance_percentage %></td>
+        <td><%= software_center.target_compliant_percentage %></td>
+        <td><%= software_center.configuration_baseline_revision %></td>
+        <td><%= software_center.conviguration_baseline_name %></td>
+        <td><%= link_to 'Show', software_center %></td>
+        <td><%= link_to 'Edit', edit_software_center_path(software_center) %></td>
+        <td><%= link_to 'Destroy', software_center, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Software center', new_software_center_path %>

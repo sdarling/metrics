@@ -1,0 +1,1 @@
+json.partial! "software_centers/software_center", software_center: @software_center

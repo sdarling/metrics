@@ -1,0 +1,1 @@
+json.array! @software_centers, partial: 'software_centers/software_center', as: :software_center
