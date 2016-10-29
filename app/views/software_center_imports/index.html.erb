@@ -21,7 +21,7 @@
   </thead>
 
   <tbody>
-    <% @software_centers.each do |software_center| %>
+    <% @imports.each do |software_center| %>
       <tr>
         <td><%= software_center.category %></td>
         <td><%= software_center.targeter %></td>
@@ -44,4 +44,4 @@
 
 <br>
 
-<%= link_to 'New Software center', new_software_center_path %>
+<%= link_to 'New Software center', new_software_center_import_path %>
