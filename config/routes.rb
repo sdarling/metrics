@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :software_center_imports
-  post 'import_software_center' => "software_center_imports#import"
+  post 'import_system_center' => "software_center_imports#import"
   ActiveAdmin.routes(self)
   resources :metrics do
   	resources :metric_values

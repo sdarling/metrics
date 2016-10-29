@@ -99,11 +99,11 @@ ActiveRecord::Schema.define(version: 20161028202510) do
     t.integer  "non_compliant_count"
     t.integer  "compliant_count"
     t.string   "collection_name"
-    t.string   "compliance_percentage"
+    t.decimal  "compliance_percentage",           precision: 10, scale: 2
     t.string   "configuration_baseline_revision"
     t.string   "configuration_baseline_name"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
   end
 
   create_table "units", force: :cascade do |t|

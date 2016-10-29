@@ -8,7 +8,7 @@ class CreateSoftwareCenterImports < ActiveRecord::Migration
       t.integer :non_compliant_count
       t.integer :compliant_count
       t.string :collection_name
-      t.string :compliance_percentage
+      t.decimal :compliance_percentage, :precision => 10, :scale => 2
       t.string :configuration_baseline_revision
       t.string :configuration_baseline_name
 
