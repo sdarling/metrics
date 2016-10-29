@@ -6,7 +6,7 @@ class SoftwareCenterImportsController < ApplicationController
   	object_hash = Hash.from_xml(File.read(filename))
   	detail = object_hash['Report']['Table0']['Detail_Collection']['Detail']
 
-  	category = detail["Details_Table0_Categoriesdex3"]
+  	category = detail["Details_Table0_Categories"]
     targeted_count = detail["Details_Table0_CountTargeted"]
     failed_count = detail["Details_Table0_FailureCount"]
     unknown_count = detail["Details_Table0_CountNotReporting"]
@@ -17,7 +17,10 @@ class SoftwareCenterImportsController < ApplicationController
     configuration_baseline_name = detail["Details_Table0_BaselineName"]
     compliance_percentage = detail["CompliancePercentage"]
 
-      SoftwareCenterImport.create()
+      SoftwareCenterImport.create("category" => category, "targeted_count" => targeted_count, "failed_count" => failed_count, 
+        "unknown_count" => unknown_count, "non_compliant_count" => non_compliant_count, "compliant_count" => compliant_count,
+        "collection_name" => collection_name, "compliance_percentage" => compliance_percentage, "configuration_baseline_revision" => configuration_baseline_revision,
+        "configuration_baseline_name" => configuration_baseline_name)
 
     redirect_to software_center_imports_path
 

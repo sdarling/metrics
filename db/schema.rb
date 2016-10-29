@@ -100,7 +100,6 @@ ActiveRecord::Schema.define(version: 20161028202510) do
     t.integer  "compliant_count"
     t.string   "collection_name"
     t.string   "compliance_percentage"
-    t.string   "target_compliant_percentage"
     t.string   "configuration_baseline_revision"
     t.string   "configuration_baseline_name"
     t.datetime "created_at",                      null: false
