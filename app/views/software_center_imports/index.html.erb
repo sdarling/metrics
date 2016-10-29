@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<div>
+  <%= button_to "Import XML", import_software_center_path, :data => {:confirm => 'Are you sure you want to import new data?'} %>
+</div>
+
 <h1>Listing Software Centers</h1>
 
 <table>

@@ -2,7 +2,7 @@ class SoftwareCenterImportsController < ApplicationController
 
   def import
 
-  	filename = 'sccm_sample.xml'
+  	filename = Dir.glob("./external_data/*").max_by {|f| File.mtime(f)}
   	object_hash = Hash.from_xml(File.read(filename))
   	detail = object_hash['Report']['Table0']['Detail_Collection']['Detail']
 
@@ -28,7 +28,7 @@ class SoftwareCenterImportsController < ApplicationController
 
   def index
 
-    @imports = SoftwareCenterImport.all
+    @imports = SoftwareCenterImport.order(:created_at).reverse_order
 
   end
 
