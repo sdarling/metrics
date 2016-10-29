@@ -93,16 +93,16 @@ ActiveRecord::Schema.define(version: 20161028202510) do
 
   create_table "software_center_imports", force: :cascade do |t|
     t.string   "category"
-    t.integer  "targeter"
-    t.integer  "failed"
-    t.integer  "unknown"
-    t.integer  "non_compliant"
-    t.integer  "compliant"
+    t.integer  "targeted_count"
+    t.integer  "failed_count"
+    t.integer  "unknown_count"
+    t.integer  "non_compliant_count"
+    t.integer  "compliant_count"
     t.string   "collection_name"
     t.string   "compliance_percentage"
     t.string   "target_compliant_percentage"
     t.string   "configuration_baseline_revision"
-    t.string   "conviguration_baseline_name"
+    t.string   "configuration_baseline_name"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
