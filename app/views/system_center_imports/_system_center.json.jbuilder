@@ -1,0 +1,2 @@
+json.extract! system_center_import, :id, :category, :targeter, :failed, :unknown, :non_compliant, :compliant, :collection_name, :compliance_percentage, :target_compliant_percentage, :configuration_baseline_revision, :conviguration_baseline_name, :created_at, :updated_at
+json.url system_center_import_url(software_center, format: :json)

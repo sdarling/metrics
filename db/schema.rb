@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20161028202510) do
     t.datetime "updated_at",                               null: false
   end
 
-  create_table "software_center_imports", force: :cascade do |t|
+  create_table "system_center_imports", force: :cascade do |t|
     t.string   "category"
     t.integer  "targeted_count"
     t.integer  "failed_count"

@@ -1,6 +1,6 @@
-class CreateSoftwareCenterImports < ActiveRecord::Migration
+class CreateSystemCenterImports < ActiveRecord::Migration
   def change
-    create_table :software_center_imports do |t|
+    create_table :system_center_imports do |t|
       t.string :category
       t.integer :targeted_count
       t.integer :failed_count
