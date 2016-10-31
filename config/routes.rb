@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  resources :sources
+  resources :reports
   resources :system_center_imports
   post 'import_system_center' => "system_center_imports#import"
+  post 'import_system_center_2' => "system_center_imports#import_2"
   ActiveAdmin.routes(self)
   resources :metrics do
   	resources :metric_values

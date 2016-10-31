@@ -90,3 +90,8 @@ Score.create("effective_date" => "2016-1-1", "actual_value" => "2.5", "target_va
 Score.create("effective_date" => "2016-1-1", "actual_value" => "1.8", "target_value" => "3", "csf_function_id" => 5)
 Score.create("effective_date" => "2016-1-1", "actual_value" => "1.9", "target_value" => "3", "csf_function_id" => 5)
 Score.create("effective_date" => "2016-1-1", "actual_value" => "2.9", "target_value" => "3", "csf_function_id" => 5)
+
+Source.create("id" => 1, "name" => "System Center Configuration Manager (SCCM)")
+
+Report.create("id" => 1, "name" => "Server Patch Duration Time", "source_id" => 1)
+Report.create("id" => 2, "name" => "Symantec Encryption Compliance Percentage", "source_id" => 1)

@@ -2,7 +2,7 @@ class SystemCenterImportsController < ApplicationController
 
   def import
 
-  	filename = Dir.glob("./external_data/*").max_by {|f| File.mtime(f)}
+  	filename = Dir.glob("./external_data/import/*").max_by {|f| File.mtime(f)}
   	object_hash = Hash.from_xml(File.read(filename))
   	detail = object_hash['Report']['Table0']['Detail_Collection']['Detail']
 
@@ -17,7 +17,7 @@ class SystemCenterImportsController < ApplicationController
     configuration_baseline_name = detail["Details_Table0_BaselineName"]
     compliance_percentage = detail["CompliancePercentage"]
 
-      SystemCenterImport.create("category" => category, "targeted_count" => targeted_count, "failed_count" => failed_count, 
+      SystemCenterImport.create("report_id" => 2,"category" => category, "targeted_count" => targeted_count, "failed_count" => failed_count, 
         "unknown_count" => unknown_count, "non_compliant_count" => non_compliant_count, "compliant_count" => compliant_count,
         "collection_name" => collection_name, "compliance_percentage" => compliance_percentage, "configuration_baseline_revision" => configuration_baseline_revision,
         "configuration_baseline_name" => configuration_baseline_name)
@@ -26,9 +26,32 @@ class SystemCenterImportsController < ApplicationController
 
   end
 
+  def import_2
+
+    filename = Dir.glob("./external_data/import_2/*").max_by {|f| File.mtime(f)}
+    object_hash = Hash.from_xml(File.read(filename))
+    details = object_hash['Report']['Tablix2']['Details_Collection']['Details']
+
+    hash1 = details.map{|x| x['Duration1']}
+
+    hash2 = hash1.map{|n| eval n}
+
+    avg = hash2.inject(0.0) { |sum, el| sum + el } / hash2.size
+    
+      SystemCenterImport.create("report_id" => 1, "average_patch_duration_days" => avg)
+
+    redirect_to system_center_imports_path
+
+    
+
+  end  
+
   def index
 
-    @imports = SystemCenterImport.order(:created_at).reverse_order
+    @imports = SystemCenterImport.where("report_id" => 2).order(:created_at).reverse_order
+    @imports_2 = SystemCenterImport.where("report_id" => 1).order(:created_at).reverse_order
+    @report_1 = Report.find(1)
+    @report_2 = Report.find(2)
 
   end
 

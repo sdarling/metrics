@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028202510) do
+ActiveRecord::Schema.define(version: 20161031215450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,14 @@ ActiveRecord::Schema.define(version: 20161028202510) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.integer  "source_id"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "scores", force: :cascade do |t|
     t.datetime "effective_date"
     t.decimal  "actual_value",    precision: 10, scale: 2
@@ -91,8 +99,16 @@ ActiveRecord::Schema.define(version: 20161028202510) do
     t.datetime "updated_at",                               null: false
   end
 
+  create_table "sources", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "system_center_imports", force: :cascade do |t|
     t.string   "category"
+    t.integer  "report_id"
     t.integer  "targeted_count"
     t.integer  "failed_count"
     t.integer  "unknown_count"
@@ -102,6 +118,7 @@ ActiveRecord::Schema.define(version: 20161028202510) do
     t.decimal  "compliance_percentage",           precision: 10, scale: 2
     t.string   "configuration_baseline_revision"
     t.string   "configuration_baseline_name"
+    t.decimal  "average_patch_duration_days",     precision: 10, scale: 2
     t.datetime "created_at",                                               null: false
     t.datetime "updated_at",                                               null: false
   end
