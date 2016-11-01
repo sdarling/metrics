@@ -43,7 +43,6 @@ class SystemCenterImportsController < ApplicationController
     redirect_to system_center_imports_path
 
     
-
   end  
 
   def index
