@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Csf function:</strong>
+  <%= @csf_category.csf_function_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @csf_category.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @csf_category.description %>
+</p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @csf_category.abbreviation %>
+</p>
+
+<%= link_to 'Edit', edit_csf_category_path(@csf_category) %> |
+<%= link_to 'Back', csf_categories_path %>

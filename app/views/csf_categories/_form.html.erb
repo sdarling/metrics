@@ -1,0 +1,14 @@
+<%= simple_form_for(@csf_category) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :csf_function_id %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :abbreviation %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  csf_function_id: 1
+  name: MyString
+  description: MyText
+  abbreviation: MyString
+
+two:
+  csf_function_id: 1
+  name: MyString
+  description: MyText
+  abbreviation: MyString

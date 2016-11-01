@@ -1,0 +1,1 @@
+json.array! @csf_categories, partial: 'csf_categories/csf_category', as: :csf_category

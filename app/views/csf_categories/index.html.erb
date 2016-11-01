@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Csf Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Csf function</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Abbreviation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @csf_categories.each do |csf_category| %>
+      <tr>
+        <td><%= csf_category.csf_function_id %></td>
+        <td><%= csf_category.name %></td>
+        <td><%= csf_category.description %></td>
+        <td><%= csf_category.abbreviation %></td>
+        <td><%= link_to 'Show', csf_category %></td>
+        <td><%= link_to 'Edit', edit_csf_category_path(csf_category) %></td>
+        <td><%= link_to 'Destroy', csf_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Csf category', new_csf_category_path %>

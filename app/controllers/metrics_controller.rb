@@ -11,6 +11,7 @@ class MetricsController < ApplicationController
   # GET /metrics/1.json
   def show
     @metric = Metric.find(params[:id])
+    @categories = @metric.csf_categories
     @metric_values = MetricValue.where("metric_id" => params[:id]).order(:effective_date)
     @metric_value = MetricValue.new
     @mat_level = MaturityLevel.where("metric_id" => params[:id])

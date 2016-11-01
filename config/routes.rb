@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :csf_categories
   resources :sources
   resources :reports
   resources :system_center_imports
