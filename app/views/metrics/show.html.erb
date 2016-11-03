@@ -69,7 +69,7 @@
         </thead>
         <tbody>
         <% @categories.each do |category| %>
-          <td class="text-xs-center"><%= category.name %> (<%= category.abbreviation %>)</td>
+          <td class="text-xs-center"><%= link_to category.name, category %> (<%= category.abbreviation %>)</td>
         </tbody>
         <% end %>
       </table>

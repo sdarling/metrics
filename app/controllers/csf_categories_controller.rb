@@ -1,5 +1,13 @@
 class CsfCategoriesController < InheritedResources::Base
 
+	def show
+
+		@csf_category = CsfCategory.find(params[:id])
+		@metrics = @csf_category.metrics
+
+	end
+
+
   private
 
     def csf_category_params

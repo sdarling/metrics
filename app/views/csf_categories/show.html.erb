@@ -2,7 +2,7 @@
 
 <p>
   <strong>Csf function:</strong>
-  <%= @csf_category.csf_function_id %>
+  <%= link_to @csf_category.csf_function_name, csf_function_path(@csf_category.csf_function_id) %>
 </p>
 
 <p>
@@ -20,5 +20,21 @@
   <%= @csf_category.abbreviation %>
 </p>
 
-<%= link_to 'Edit', edit_csf_category_path(@csf_category) %> |
-<%= link_to 'Back', csf_categories_path %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-3">
+    	<table class="table">
+	        <thead>
+	          <tr>
+	            <th class="text-xs-center">Metric Name</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	        <% @metrics.each do |metric| %>
+	          <td class="text-xs-center"><%= link_to metric.name, metric %></td>
+	        </tbody>
+	        <% end %>
+      	</table>
+    </div>
+  </div>
+</div>
