@@ -1,27 +1,96 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Summary</th>
+            <th>Projects</th>
+          </tr>
+        </thead>
 
-<h1>Listing Sccm Metrics</h1>
+        <tbody>
+          <% @sccm_metrics.each do |sccm_metric| %>
+            <tr>
+              <td><%= sccm_metric["Title"] %></td>
+              <td><%= sccm_metric["Summary"] %></td>
+              <td><%= sccm_metric["ProjectCount"] %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="sample-data-chart">
+      </div>
+    </div>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Summary</th>
-      <th># Projects</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @sccm_metrics.each do |sccm_metric| %>
-      <tr>
-        <td><%= sccm_metric["Title"] %></td>
-        <td><%= sccm_metric["Summary"] %></td>
-        <td><%= sccm_metric["ProjectCount"] %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<script>
+  $(function () {
+      $('#sample-data-chart').highcharts({
+          chart: {
+              type: 'column',
+              height: 400,
+              backgroundColor: 'transparent'
+          },  
+          colors: ['#006fb3', '#000000'],                            
+          title: {
+              text: '',
+              x: -20 //center
+          },
+          subtitle: {
+              text: '',
+              x: -20
+          },
+          xAxis: {
+              categories: [ <% @sccm_metrics.each do |metric| %>
+                '<%= metric["Title"] %>',
+                  <% end %>]
+          },
+          yAxis: {
+              min: 0,
+              max: 8,
+              tickInterval: 2,
+              title: {
+                  text: ''
+              },
+              plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+              }],
+              labels:
+              {
+                enabled: true
+              }              
+          },
+          tooltip: {
+              valueSuffix: ''
+          },
+          legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle',
+              borderWidth: 0,
+              enabled: false
+          },
+          series: [{
+              name: '# Metrics',
+              data: [
+                      <% @sccm_metrics.each do |metric| %>
+                      <%= metric["ProjectCount"] %>,
+                      <% end %>
+              ]
+          }],
+          credits: {
+            enabled: false
+          }
+      });
+  });
+</script>
 
