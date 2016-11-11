@@ -1,0 +1,1 @@
+json.partial! "sccm_metrics/sccm_metric", sccm_metric: @sccm_metric

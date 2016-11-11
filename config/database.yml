@@ -59,3 +59,10 @@ production:
   username: stephendarling
   password: 
   template: template0
+
+sccm:
+  adapter:  sqlserver
+  dataserver:     192.168.1.11
+  database: PMM_Dev
+  username: sccm
+  password: pa$$word

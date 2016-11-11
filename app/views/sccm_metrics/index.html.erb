@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sccm Metrics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sccm_metrics.each do |sccm_metric| %>
+      <tr>
+        <td><%= sccm_metric.Id %></td>
+        <td><%= sccm_metric.Title %></td>
+        <td><%= sccm_metric.Summary %></td>
+        <td><%= link_to 'Show', sccm_metric %></td>
+        <td><%= link_to 'Edit', edit_sccm_metric_path(sccm_metric) %></td>
+        <td><%= link_to 'Destroy', sccm_metric, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sccm metric', new_sccm_metric_path %>

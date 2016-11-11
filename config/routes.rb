@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sccm_metrics
   resources :csf_categories
   resources :sources
   resources :reports

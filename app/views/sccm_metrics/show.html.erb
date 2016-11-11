@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sccm_metric.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sccm_metric.description %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @sccm_metric.value %>
+</p>
+
+<%= link_to 'Edit', edit_sccm_metric_path(@sccm_metric) %> |
+<%= link_to 'Back', sccm_metrics_path %>
