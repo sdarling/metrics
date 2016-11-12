@@ -24,6 +24,31 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Summary</th>
+            <th>Insert User</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @all_sccm_metrics.each do |metric| %>
+            <tr>
+              <td><%= metric.Id %></td>
+              <td><%= metric.Title %></td>
+              <td><%= metric.Summary %></td>
+              <td><%= metric.InsertUser %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>  
+  <div class="row">
+    <div class="col-xs-12">
       <div id="sample-data-chart">
       </div>
     </div>

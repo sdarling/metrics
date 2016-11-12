@@ -18,6 +18,7 @@ class SccmMetricsController < InheritedResources::Base
 		GROUP BY p.title, p.Summary
 		"
 		@sccm_metrics = SccmBase.connection.select_all(sql).to_a
+		@all_sccm_metrics = SccmMetric.all
 	end
 
   private
