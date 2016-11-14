@@ -62,7 +62,7 @@ production:
 
 sccm:
   adapter:  sqlserver
-  dataserver:     192.168.1.14
+  dataserver:     10.220.68.167
   database: PMM_Dev
   username: sccm
   password: pa$$word
