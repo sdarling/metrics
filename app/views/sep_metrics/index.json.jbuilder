@@ -1,0 +1,1 @@
+json.array! @sep_metrics, partial: 'sep_metrics/sep_metric', as: :sep_metric

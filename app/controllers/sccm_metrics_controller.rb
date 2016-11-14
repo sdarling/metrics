@@ -19,6 +19,7 @@ class SccmMetricsController < InheritedResources::Base
 		"
 		@sccm_metrics = SccmBase.connection.select_all(sql).to_a
 		@all_sccm_metrics = SccmMetric.all
+
 	end
 
   private

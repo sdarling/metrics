@@ -1,0 +1,1 @@
+json.partial! "sep_metrics/sep_metric", sep_metric: @sep_metric
