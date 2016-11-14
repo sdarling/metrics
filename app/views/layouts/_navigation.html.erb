@@ -1,9 +1,10 @@
 <nav class="navbar navbar-fixed-top navbar-light bg-faded">
 	<div class="container-fluid">
 		<!-- Brand -->
-		<a class="btn btn-primary-outline" href="/">Metrics Application</a>
+		<a class="btn btn-primary-outline" href="/">CM2p</a>
 
 		<!-- Links -->
+		<% if user_signed_in? %>		
 		<ul class="nav navbar-nav pull-xs-right">
 			<li class="nav-item">
 				<a class="btn btn-primary-outline" href="/dashboards">Dashboard</a>
@@ -22,7 +23,6 @@
 				<a class="btn btn-primary-outline" href="/admin">Admin</a>
 			</li>
 		<% end %>
-		<% if user_signed_in? %>		
 		    <li class="nav-item dropdown">
 		      <a class="btn btn-primary-outline dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.firstname %></a>
 		      	<div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
@@ -30,6 +30,7 @@
 		        </div>
 		    </li>
 		<% else %>
+		<ul class="nav navbar-nav pull-xs-right">		
 		    <li class="nav-item dropdown">
 		      <a class="btn btn-primary-outline dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>	
 		      	<div class="dropdown-menu" aria-labelledby="supportedContentDropdown">

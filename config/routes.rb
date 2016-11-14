@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :csf_functions
   resources :dashboards
   devise_for :users, :controllers => { registrations: 'registrations' }
-  root to: 'dashboards#index'
+  authenticated do 
+    root to: 'dashboards#index', as: :authenticated
+  end
+  root to: 'visitors#index'
   mount Judge::Engine => '/judge'
 end
