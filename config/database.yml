@@ -69,7 +69,7 @@ sccm:
 
 sep:
   adapter:  sqlserver
-  dataserver:     10.220.100.251
+  dataserver:     betivcpsepc01.corp.abtassoc.com
   database: sem5
   username: abtassoc.com\DarlingS
   password: Il0veUVA!230987
