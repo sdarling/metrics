@@ -1,7 +1,7 @@
 <nav class="navbar navbar-fixed-top navbar-light bg-faded">
 	<div class="container-fluid">
 		<!-- Brand -->
-		<a class="btn btn-primary-outline" href="/">CM2p</a>
+		<a class="btn btn-primary-outline" href="/">CM2P</a>
 
 		<!-- Links -->
 		<% if user_signed_in? %>		
@@ -13,10 +13,7 @@
 				<a class="btn btn-primary-outline" href="/csf_functions">CSF Functions</a>
 			</li>
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/system_center_imports">System Center Imports</a>
-			</li>	
-			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/sccm_metrics">SQL Metrics</a>
+				<a class="btn btn-primary-outline" href="/system_center_imports">SCCM Imports</a>
 			</li>		
 		<% if user_signed_in? && current_user.superadmin? %>
 			<li class="nav-item">
