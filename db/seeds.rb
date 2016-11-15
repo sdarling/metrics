@@ -4,11 +4,11 @@ User.create("firstname" => "Brian", "lastname" => "Gay", "email" => 'brian_gay@a
 User.create("firstname" => "Ryan", "lastname" => "Tappis", "email" => 'ryan_tappis@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
 User.create("firstname" => "Sean", "lastname" => "Owen", "email" => 'sean_owen@abtassoc.com', "password" => 'Pa$$word', "password_confirmation" => 'Pa$$word')
 
-CsfFunction.create("id" => 1, "name" => "Identify", "avg_maturity_level" => 0)
-CsfFunction.create("id" => 2, "name" => "Protect", "avg_maturity_level" => 0)
-CsfFunction.create("id" => 3, "name" => "Detect", "avg_maturity_level" => 0)
-CsfFunction.create("id" => 4, "name" => "Respond", "avg_maturity_level" => 0)
-CsfFunction.create("id" => 5, "name" => "Recover", "avg_maturity_level" => 0)
+CsfFunction.create("id" => 1, "name" => "Identify", "avg_maturity_level" => 0, "goal_question" => "How effectively are we identifying cybersecurity risks that may impact the organization?")
+CsfFunction.create("id" => 2, "name" => "Protect", "avg_maturity_level" => 0, "goal_question" => "How effective is our ability to develop and implement the appropriate safeguards to ensure delivery of critical infrastructure services?")
+CsfFunction.create("id" => 3, "name" => "Detect", "avg_maturity_level" => 0, "goal_question" => "How effective is our ability to develop and implement activities to identify the occurence of a cybersecurity event?")
+CsfFunction.create("id" => 4, "name" => "Respond", "avg_maturity_level" => 0, "goal_question" => "How effective is our ability to contain the impact of a potential cybersecurity event?")
+CsfFunction.create("id" => 5, "name" => "Recover", "avg_maturity_level" => 0, "goal_question" => "How effective is our ability to timely recover to normal operations to reduce impact from a cybersecurity event?")
 
 CsfCategory.create("id" => 1, "csf_function_id" => 1, "name" => "Business Environment", "abbreviation" => "ID.BE")
 CsfCategory.create("id" => 2, "csf_function_id" => 1, "name" => "Governance", "abbreviation" => "ID.GV")

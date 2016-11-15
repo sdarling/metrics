@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20161114191713) do
   create_table "csf_functions", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
+    t.text     "goal_question"
     t.decimal  "avg_maturity_level", precision: 10, scale: 2
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
