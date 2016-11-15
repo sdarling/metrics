@@ -69,7 +69,8 @@ sccm:
 
 sep:
   adapter:  sqlserver
-  dataserver:     betivcpsepc01.corp.abtassoc.com
+  dataserver:     10.220.100.251\SQLEXPRESS
+  mode: dblib
   database: sem5
-  username: abtassoc.com\DarlingS
+  username: 'CORP\DarlingS'
   password: Il0veUVA!230987

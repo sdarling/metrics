@@ -27,7 +27,14 @@
  }
 
 a {
-text-decoration: none !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: inherit;
+    font-size: larger;
+    font-weight:bold;
+    background-color: transparent
 }
 
 #tablePanelBody {
