@@ -4,6 +4,15 @@ class Metric < ActiveRecord::Base
 	has_many :metric_values
 	accepts_nested_attributes_for :metric_values
 
+	def self.to_csv(options = {})
+		CSV.generate(options) do |csv|
+			csv << column_names
+			all.each do |metric|
+				csv << metric.attributes.values_at(*column_names)
+			end
+		end
+	end
+
 	def csf_function_name
 		CsfFunction.find(self.csf_function_id).name
 	end

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Metric Name</Data></Cell>
+        <Cell><Data ss:Type="String">Maturity Level</Data></Cell>
+        <Cell><Data ss:Type="String">Target Maturity Level</Data></Cell>
+      </Row>
+    <% @metrics.each do |metric| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= metric.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= metric.recent_maturity_level %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= metric.target_maturity_level %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
