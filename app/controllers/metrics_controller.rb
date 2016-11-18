@@ -9,7 +9,6 @@ class MetricsController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { send_data @metrics.to_csv }
-      format.xls { send_data @metrics.to_csv(col_sep: "\t") }
     end
   end
 
@@ -31,7 +30,7 @@ class MetricsController < ApplicationController
   def download_xlsx
       @metrics = Metric.all
       respond_to do |format| 
-         format.xlsx {render xlsx: 'download',filename: "metrics.xlsx"}
+         format.xlsx {render xlsx: 'download',filename: "metrics.xlsx", layout: false}
       end
   end  
 
