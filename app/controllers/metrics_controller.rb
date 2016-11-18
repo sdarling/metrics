@@ -28,6 +28,13 @@ class MetricsController < ApplicationController
     @metric = Metric.new
   end
 
+  def download_xlsx
+      @metrics = Metric.all
+      respond_to do |format| 
+         format.xlsx {render xlsx: 'download',filename: "metrics.xlsx"}
+      end
+  end  
+
   # GET /metrics/1/edit
   def edit
   end

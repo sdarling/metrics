@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Metrics") do |sheet|
+    sheet.add_row ["ID", "Name","Recent Maturity Level","Target Maturity Level"]
+    @metrics.each do |m|
+        sheet.add_row [m.id, m.name, m.recent_maturity_level, m.target_maturity_level]
+    end
+end
