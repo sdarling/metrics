@@ -7,25 +7,22 @@
 		<% if user_signed_in? %>		
 		<ul class="nav navbar-nav pull-xs-right">
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/dashboards">Dashboard</a>
+				<a class="btn btn-primary-outline" href="/dashboards"><i class="fa fa-tachometer" aria-hidden="true"></i></a>
 			</li>
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/csf_functions">CSF Functions</a>
-			</li>
-			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/system_center_imports">SCCM Imports</a>
+				<a class="btn btn-primary-outline" href="/csf_functions"><i class="fa fa-map-o" aria-hidden="true"></i></a>
 			</li>	
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/metrics">Metrics</a>
+				<a class="btn btn-primary-outline" href="/metrics"><i class="fa fa-bar-chart" aria-hidden="true"></i></a>
 			</li>	
 		<% if user_signed_in? && current_user.superadmin? %>
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/admin">Admin</a>
+				<a class="btn btn-primary-outline" href="/admin"><i class="fa fa-lock" aria-hidden="true"></i></a>
 			</li>
 		<% end %>
 		    <li class="nav-item dropdown">
 		      <a class="btn btn-primary-outline dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.firstname %></a>
-		      	<div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
+		      	<div class="dropdown-menu" aria-labelledby="supportedContentDropdown" style="text-align:center"> 
 		        	<a class="dropdown-item" href="/users/sign_out">Logout</a>
 		        </div>
 		    </li>
@@ -33,7 +30,7 @@
 		<ul class="nav navbar-nav pull-xs-right">		
 		    <li class="nav-item dropdown">
 		      <a class="btn btn-primary-outline dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>	
-		      	<div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
+		      	<div class="dropdown-menu" aria-labelledby="supportedContentDropdown" style="text-align:center">
 					<a class="dropdown-item" href="/users/sign_up">Register</a>
 					<a class="dropdown-item" href="/users/sign_in">Login</a>
 				</div>
