@@ -1,5 +1,8 @@
 class SystemCenterImportsController < ApplicationController
 
+   require 'base64'
+   require 'rest-client'
+
   def import
 
   	filename = Dir.glob("./external_data/import/*").max_by {|f| File.mtime(f)}
@@ -51,6 +54,28 @@ class SystemCenterImportsController < ApplicationController
     @imports_2 = SystemCenterImport.where("report_id" => 1).order(:created_at).reverse_order
     @report_1 = Report.find(1)
     @report_2 = Report.find(2)
+
+
+   
+   # Set the request parameters
+   host = 'https://abtassociates.service-now.com'
+   user = 'corp\stephen_darling@abtassoc.com'
+   pwd = 'Il0veUVA!230987'
+   
+   begin
+     # Get ALL incidents
+    response = RestClient.get("#{host}/api/now/table/incident",
+                               {:authorization => "Basic #{Base64.strict_encode64("#{user}:#{pwd}")}",
+                                :accept => 'application/json'})
+     puts "#{response.to_str}"
+     puts "Response status: #{response.code}"
+     @servicenow = response.headers.each { |k,v|
+       puts "Header: #{k}=#{v}"
+     }
+   
+   rescue => e
+     puts "ERROR: #{e}"
+   end 
 
   end
 
