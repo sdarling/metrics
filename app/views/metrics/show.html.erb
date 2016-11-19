@@ -25,13 +25,27 @@
           <br/>
           <br/>
 
-
-
         </div>
       </div>
-    </div>
+    </div>    
     <div class="col-xs-6">
-      <div id="metric-recentvalues">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#value" role="tab">Value</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#maturity-level" role="tab">Maturity Level</a>
+        </li>
+      </ul>  
+      <div class="tab-content">
+        <div class="tab-pane fade in active" id="value">
+          <div id="metric-recentvalues">
+          </div>
+        </div>
+        <div class="tab-pane fade in" id="maturity-level">
+          <div id="metric-maturityvalues">
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -149,6 +163,67 @@
   });
 </script>
 
-
+<script>
+  $(function () {
+      $('#metric-maturityvalues').highcharts({
+          chart: {
+            height: 240,
+          },  
+          title: {
+              text: '',
+              x: -20 //center
+          },
+          subtitle: {
+              text: '',
+              x: -20
+          },
+          xAxis: {
+              categories: [
+                            <% @metric_values.each do |date| %>
+                              '<%= date.effective_date.strftime("%m/%d/%Y") %>',
+                            <% end %>
+              ]
+          },
+          yAxis: {
+              title: {
+                  text: 'Health Score'
+              },
+              plotLines: [{
+                  value: 0,
+                  width: 1,
+                  color: '#808080'
+              }]
+          },
+          tooltip: {
+              valueSuffix: ''
+          },
+          legend: {
+              layout: 'vertical',
+              align: 'right',
+              verticalAlign: 'middle',
+              borderWidth: 0
+          },
+          series: [{
+              name: 'Actual',
+              data: [
+                      <% @metric_values.each do |score| %>
+                        <%= score.maturity_level %>,
+                      <% end %>
+              ]
+          }, {
+              name: 'Target',
+              data: [
+                      <% @metric_values.each do |score| %>
+                        <%= score.maturity_level %>,
+                      <% end %>
+              ],
+              dashStyle: 'dash'
+          }],
+          credits: {
+            enabled: false
+          }
+      });
+  });
+</script>
 
 
