@@ -10,7 +10,7 @@
     <tbody>
       <% @users.each do |u| %>
         <tr>
-          <td><%= link_to u.full_name, user_path(u.id) %></td>
+          <td><%= link_to u.full_name, user_path(u.slug) %></td>
           <td><%= u.email %></td>
         </tr>
       <% end %>
