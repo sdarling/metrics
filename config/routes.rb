@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   resources :sep_metrics
   resources :sccm_metrics
   resources :csf_categories
+  devise_for :users, :controllers => { registrations: 'registrations' }  
+  get '/users/sign_out' => 'devise/sessions#destroy'
+  get 'users' => 'users#index'
+  get 'users/:id' => 'users#show', :as => :user
   resources :sources
   resources :reports
   resources :system_center_imports
@@ -15,7 +19,6 @@ Rails.application.routes.draw do
   resources :organizations
   resources :csf_functions
   resources :dashboards
-  devise_for :users, :controllers => { registrations: 'registrations' }
   authenticated do 
     root to: 'dashboards#index', as: :authenticated
   end

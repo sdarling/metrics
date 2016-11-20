@@ -1,0 +1,19 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |u| %>
+        <tr>
+          <td><%= link_to u.full_name, user_path(u.id) %></td>
+          <td><%= u.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
