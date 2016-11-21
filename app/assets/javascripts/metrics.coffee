@@ -4,7 +4,5 @@
 
 $('.best_in_place').best_in_place()
 
-$('.chosen-select').chosen
-allow_single_deselect: true
-no_results_text: 'No results matched'
-width: '200px'
+jQuery ->
+	$('#metric_user_ids').chosen()

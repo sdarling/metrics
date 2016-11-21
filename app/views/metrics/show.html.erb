@@ -20,11 +20,17 @@
             <%= link_to @metric.csf_function_name, csf_function_path(@metric.csf_function_id) %>
           </p>
           <br/>
-          <%= link_to 'Edit', edit_metric_path(@metric) %> |
-          <%= link_to 'Back', metrics_path %>
-          <br/>
-          <br/>
-
+          <p>
+          <div>
+	          <%= form_for(@metric) do |f| %>
+	          	<%= f.collection_select :user_ids , User.all, :id, :full_name, {}, {multiple: true, :style => 'width: 400px'} %>
+          </div>
+          </p>
+          <br>
+          <div>
+          	<%= f.submit %>
+          </div>
+          <% end %>
         </div>
       </div>
     </div>    
