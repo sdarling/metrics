@@ -15,7 +15,7 @@ class MetricsController < ApplicationController
   # GET /metrics/1
   # GET /metrics/1.json
   def show
-    @metric = Metric.find(params[:id])
+    @metric = Metric.friendly.find(params[:id])
     @categories = @metric.csf_categories
     @metric_values = MetricValue.where("metric_id" => params[:id]).order(:effective_date)
     @metric_value = MetricValue.new
@@ -57,7 +57,7 @@ class MetricsController < ApplicationController
   # PATCH/PUT /metrics/1
   # PATCH/PUT /metrics/1.json
   def update
-    @metric = Metric.find(params[:id])    
+    @metric = Metric.friendly.find(params[:id])    
     respond_to do |format|
       if @metric.update(metric_params)
         format.html { redirect_to @metric, notice: 'Metric was successfully updated.' }
@@ -82,7 +82,7 @@ class MetricsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_metric
-      @metric = Metric.find(params[:id])
+      @metric = Metric.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
