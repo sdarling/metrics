@@ -14,6 +14,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables
 //= require jquery.purr
 //= require best_in_place
 //= require chosen-jquery

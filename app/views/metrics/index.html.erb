@@ -4,8 +4,7 @@
 <%= link_to "CSV", metrics_path(format: "csv") %> |
 <%= link_to "Excel", metrics_xlsx_path(format: :xlsx) %>
 
-<div class="table-responsive ">
-  <table class="table">
+  <table id="metrics" class="display">
     <thead>
       <tr>
         <th>Metric Name</th>
@@ -30,6 +29,3 @@
       <% end %>
     </tbody>
   </table>
-</div>
-
-<%= will_paginate @metrics %>

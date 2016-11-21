@@ -12,8 +12,9 @@
  *
  *= require font-awesome
  *= require chosen
+ *= require dataTables/src/demo_table_jui
  *= require_tree .
- *= require_self
+ *= require_self 
  */
 
 /* bootstrap hack: fix content width inside hidden tabs */
@@ -64,10 +65,6 @@ a:hover {
     padding: 0;
 }
 
-thead th {
-	background-color: grey;
-    color: white;
-}
 
 #grey-bg {
 	background-color: grey;

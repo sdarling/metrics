@@ -7,3 +7,7 @@ $('.best_in_place').best_in_place()
 jQuery ->
 	$('#metric_user_ids').chosen()
 
+jQuery ->
+	$('#metrics').dataTable()
+	sPaginationType: "full_numbers"
+

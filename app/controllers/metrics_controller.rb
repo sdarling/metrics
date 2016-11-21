@@ -4,8 +4,8 @@ class MetricsController < ApplicationController
   # GET /metrics
   # GET /metrics.json
   def index
-    metrics = Metric.all
-    @metrics = metrics.paginate(:page => params[:page], :per_page => 5)
+    
+    @metrics = Metric.all
 
     respond_to do |format|
       format.html
