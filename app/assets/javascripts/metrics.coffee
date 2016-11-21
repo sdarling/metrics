@@ -3,3 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $('.best_in_place').best_in_place()
+
+$('.chosen-select').chosen
+allow_single_deselect: true
+no_results_text: 'No results matched'
+width: '200px'

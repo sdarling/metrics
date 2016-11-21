@@ -2,6 +2,8 @@ class Metric < ActiveRecord::Base
 	has_many :csf_category_metrics
 	has_many :csf_categories, through: :csf_category_metrics
 	has_many :metric_values
+	has_many :metric_users
+	has_many :users, :through => :metric_users
 	accepts_nested_attributes_for :metric_values
 
 	def self.to_csv(options = {})
