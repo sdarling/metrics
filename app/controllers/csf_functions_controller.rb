@@ -25,8 +25,8 @@ class CsfFunctionsController < ApplicationController
   # GET /metrics/1
   # GET /metrics/1.json
   def show
-    @csf_function = CsfFunction.find(params[:id])
-    @metrics = Metric.where("csf_function_id" => params[:id]).order(:id)
+    @csf_function = CsfFunction.friendly.find(params[:id])
+    @metrics = Metric.where("csf_function_id" => @csf_function.id).order(:id)
     @metric_value = MetricValue.new    
   end
 
@@ -51,7 +51,7 @@ class CsfFunctionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_csf_function
-      @csffunction = CsfFunction.find(params[:id])
+      @csffunction = CsfFunction.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

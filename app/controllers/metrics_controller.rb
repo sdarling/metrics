@@ -4,7 +4,8 @@ class MetricsController < ApplicationController
   # GET /metrics
   # GET /metrics.json
   def index
-    @metrics = Metric.all
+    metrics = Metric.all
+    @metrics = metrics.paginate(:page => params[:page], :per_page => 5)
 
     respond_to do |format|
       format.html
@@ -17,9 +18,9 @@ class MetricsController < ApplicationController
   def show
     @metric = Metric.friendly.find(params[:id])
     @categories = @metric.csf_categories
-    @metric_values = MetricValue.where("metric_id" => params[:id]).order(:effective_date)
+    @metric_values = MetricValue.where("metric_id" => @metric.id).order(:effective_date)
     @metric_value = MetricValue.new
-    @mat_level = MaturityLevel.where("metric_id" => params[:id])
+    @mat_level = MaturityLevel.where("metric_id" =>@metric.id)
   end
 
   # GET /metrics/new

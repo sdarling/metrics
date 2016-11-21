@@ -2,7 +2,7 @@ class CsfCategoriesController < InheritedResources::Base
 
 	def show
 
-		@csf_category = CsfCategory.find(params[:id])
+		@csf_category = CsfCategory.friendly.find(params[:id])
 		@metrics = @csf_category.metrics
 
 	end

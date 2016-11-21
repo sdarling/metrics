@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121145134) do
+ActiveRecord::Schema.define(version: 20161121164140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,10 @@ ActiveRecord::Schema.define(version: 20161121145134) do
     t.string   "abbreviation"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "slug"
   end
+
+  add_index "csf_categories", ["slug"], name: "index_csf_categories_on_slug", unique: true, using: :btree
 
   create_table "csf_category_metrics", force: :cascade do |t|
     t.integer "csf_category_id"
@@ -54,7 +57,10 @@ ActiveRecord::Schema.define(version: 20161121145134) do
     t.decimal  "avg_maturity_level", precision: 10, scale: 2
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
+    t.string   "slug"
   end
+
+  add_index "csf_functions", ["slug"], name: "index_csf_functions_on_slug", unique: true, using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false

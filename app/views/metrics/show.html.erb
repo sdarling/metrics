@@ -17,7 +17,7 @@
 
           <p>
             <strong>CSF Function:</strong>
-            <%= link_to @metric.csf_function_name, csf_function_path(@metric.csf_function_id) %>
+            <%= link_to @metric.csf_function_name, csf_function_path(@metric.csf_function_slug) %>
           </p>
           <br/>
           <p>
@@ -89,7 +89,7 @@
         </thead>
         <tbody>
         <% @categories.each do |category| %>
-          <td class="text-xs-center"><%= link_to category.name, category %> (<%= category.abbreviation %>)</td>
+          <td class="text-xs-center"><%= link_to category.name, csf_category_path(category.slug) %> (<%= category.abbreviation %>)</td>
         </tbody>
         <% end %>
       </table>

@@ -6,3 +6,4 @@ $('.best_in_place').best_in_place()
 
 jQuery ->
 	$('#metric_user_ids').chosen()
+

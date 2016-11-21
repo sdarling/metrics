@@ -27,6 +27,10 @@ class Metric < ActiveRecord::Base
 		CsfFunction.find(self.csf_function_id).name
 	end
 
+	def csf_function_slug
+		CsfFunction.find(self.csf_function_id).slug
+	end
+
 	def first_entry
 		@old = MetricValue.where("metric_id" => self.id).order(:effective_date).first
 		@old.effective_date

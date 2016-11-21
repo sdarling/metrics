@@ -43,7 +43,7 @@
   </div>
   <div class="row">
     <div class="col-xs-15">
-    <%= link_to csf_function_path(@identify.id) do %>
+    <%= link_to csf_function_path(@identify.slug) do %>
       <div class="card">
           <h5 class="card-header text-xs-center" id="identify-card">Identify</h5>  
           <div class="card-block text-xs-center">
@@ -56,7 +56,7 @@
     <% end %>
     </div>
     <div class="col-xs-15">
-    <%= link_to csf_function_path(@protect.id) do %>    
+    <%= link_to csf_function_path(@protect.slug) do %>    
       <div class="card">
         <h5 class="card-header text-xs-center" id="protect-card">Protect</h5>      
         <div class="card-block text-xs-center">
@@ -69,7 +69,7 @@
     <% end %>
     </div>
     <div class="col-xs-15">
-    <%= link_to csf_function_path(@detect.id) do %>    
+    <%= link_to csf_function_path(@detect.slug) do %>    
       <div class="card">
         <h5 class="card-header text-xs-center" id="detect-card">Detect</h5>      
         <div class="card-block text-xs-center">
@@ -82,7 +82,7 @@
     <% end %>
     </div>
     <div class="col-xs-15">
-    <%= link_to csf_function_path(@respond.id) do %>    
+    <%= link_to csf_function_path(@respond.slug) do %>    
       <div class="card">
         <h5 class="card-header text-xs-center" id="respond-card">Respond</h5>      
         <div class="card-block text-xs-center">
@@ -95,7 +95,7 @@
     <% end %>
     </div>
     <div class="col-xs-15">
-    <%= link_to csf_function_path(@recover.id) do %>    
+    <%= link_to csf_function_path(@recover.slug) do %>    
       <div class="card">
         <h5 class="card-header text-xs-center" id="recover-card">Recover</h5>      
         <div class="card-block text-xs-center">
@@ -242,7 +242,7 @@
             data: [
                     <% @metrics.each do |metric| %>
                       {y: <%= metric.recent_maturity_level %>, color: '#<%= metric.hex_color %>',
-                       ownURL: '/metrics/<%= metric.id %>'},
+                       ownURL: '/metrics/<%= metric.slug %>'},
                     <% end %>
             ]
             },{

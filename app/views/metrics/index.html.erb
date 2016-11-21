@@ -4,7 +4,7 @@
 <%= link_to "CSV", metrics_path(format: "csv") %> |
 <%= link_to "Excel", metrics_xlsx_path(format: :xlsx) %>
 
-<div class="table-responsive">
+<div class="table-responsive ">
   <table class="table">
     <thead>
       <tr>
@@ -20,7 +20,7 @@
     <tbody>
       <% @metrics.each do |metric| %>
         <tr>
-          <td><%= link_to metric.name, metric %></td>
+          <td><%= link_to metric.name, metric_path(metric.slug) %></td>
           <td><%= metric.recent_maturity_level %></td>
           <td><%= metric.target_maturity_level %></td>
           <td><%= metric.first_entry %></td>
@@ -32,8 +32,4 @@
   </table>
 </div>
 
-<br>
-
-
-
-<%= link_to 'New Metric', new_metric_path %>
+<%= will_paginate @metrics %>
