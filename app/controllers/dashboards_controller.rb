@@ -3,7 +3,7 @@ class DashboardsController < ApplicationController
 
     def index
         @csf_functions = CsfFunction.all
-        @score = CsfFunction.all.average(:avg_maturity_level)
+        @score = CsfFunction.all.average(:avg_maturity_level).round(2)
         @recent_metrics = MetricValue.order(:effective_date).reverse_order.limit(5)
         @identify = CsfFunction.where("id" => 1).first
         @protect = CsfFunction.where("id" => 2).first

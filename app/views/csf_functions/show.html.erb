@@ -24,6 +24,7 @@
         <th>Target Maturity Level</th>
         <th>Recent Value</th>
         <th>New Value</th>
+        <th>Active</th>
         <th></th>
       </tr>
     </thead>
@@ -41,6 +42,7 @@
             <%= m.hidden_field :metric_id, :value => metric.id %>
             <%= m.hidden_field :effective_date, :value => DateTime.now %>
           </td>
+          <td><%= best_in_place metric, :active, :url => metric_path(metric), :as => :checkbox %></td>
         </tr>
         <% end %>
       <% end %>

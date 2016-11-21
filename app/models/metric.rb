@@ -24,15 +24,8 @@ class Metric < ActiveRecord::Base
 	end
 
 	def set_csf_maturity_level
-
-		if self.active
-
-			@avg = Metric.where("csf_function_id" => self.csf_function_id).average(:recent_maturity_level)
-			CsfFunction.find(self.csf_function_id).update_attributes("avg_maturity_level" => @avg)
-
-		else
-		end
-		
+		@avg = Metric.where(:csf_function_id => self.csf_function_id, :active => true).average(:recent_maturity_level)
+		CsfFunction.find(self.csf_function_id).update_attributes("avg_maturity_level" => @avg)
 	end	
 
 	def csf_function_name
