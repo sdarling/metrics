@@ -118,8 +118,7 @@ ActiveRecord::Schema.define(version: 20161121164140) do
     t.integer  "recent_maturity_level"
     t.integer  "target_maturity_level"
     t.integer  "owner_id"
-    t.boolean  "visible",               default: true
-    t.boolean  "calculated",            default: true
+    t.boolean  "active",                default: true
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.string   "slug"

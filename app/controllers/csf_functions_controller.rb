@@ -13,7 +13,7 @@ class CsfFunctionsController < ApplicationController
     @respond_metrics = Metric.where("csf_function_id" => 4)
     @recover_metrics = Metric.where("csf_function_id" => 5)
     @scores = Score.where("csf_function_id" => nil)
-    @metrics = Metric.order(:csf_function_id).all
+    @metrics = Metric.where("calculated" => true).order(:csf_function_id).all
     @identify_score = Score.where("csf_function_id" => 1)
     @protect_score = Score.where("csf_function_id" => 2)
     @detect_score = Score.where("csf_function_id" => 3)

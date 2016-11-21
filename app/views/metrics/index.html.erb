@@ -9,13 +9,13 @@
     <thead>
       <tr>
         <th>Metric Name</th>
+        <th>CSF Function</th>
         <th>Maturity Level</th>
         <th>Target Maturity Level</th>
         <th>First Entry</th>
         <th>Recent Entry</th>
         <th>Num Entries</th>
-        <th>Visible</th>
-        <th>Calculated</th>
+        <th>Active</th>
       </tr>
     </thead>
 
@@ -23,13 +23,13 @@
       <% @metrics.each do |metric| %>
         <tr>
           <td><%= link_to metric.name, metric_path(metric.slug) %></td>
+          <td><%= link_to metric.csf_function_name, csf_function_path(metric.csf_function_slug) %></td>
           <td><%= metric.recent_maturity_level %></td>
           <td><%= metric.target_maturity_level %></td>
           <td><%= metric.first_entry.strftime("%m-%d-%y") %></td>
           <td><%= metric.recent_entry.strftime("%m-%d-%y") %></td>
           <td><%= metric.num_entries %></td>
-          <td><%= best_in_place metric, :visible, :url => metric_path(metric), :as => :checkbox %></td>
-          <td><%= best_in_place metric, :calculated, :url => metric_path(metric), :as => :checkbox %></td>
+          <td><%= best_in_place metric, :active, :url => metric_path(metric), :as => :checkbox %></td>
         </tr>
       <% end %>
     </tbody>

@@ -7,6 +7,7 @@ class Metric < ActiveRecord::Base
 	accepts_nested_attributes_for :metric_values
 	extend FriendlyId
   	friendly_id :name, use: :slugged
+  	scope :active, -> { where(active: true)}
 
 
 

@@ -24,7 +24,7 @@ class MetricValuesController < ApplicationController
   # POST /metrics
   # POST /metrics.json
   def create
-    @metric = Metric.find(params[:metric_id])
+    @metric = Metric.friendly.find(params[:metric_id])
     @metric_value = MetricValue.new(metric_value_params)
 
     respond_to do |format|
