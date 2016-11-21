@@ -44,7 +44,7 @@ class MetricValue < ActiveRecord::Base
 
 		@metric_id = self.metric_id
 
-		if Metric.find(@metric_id).active?
+		if Metric.find(@metric_id).active
 
 		@csf = Metric.find(@metric_id).csf_function_id
 		@avg = Metric.where("csf_function_id" => @csf).average(:recent_maturity_level)

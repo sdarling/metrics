@@ -8,8 +8,7 @@ class Metric < ActiveRecord::Base
 	extend FriendlyId
   	friendly_id :name, use: :slugged
   	scope :active, -> { where(active: true)}
-
-
+  	after_update :set_csf_maturity_level
 
 	def should_generate_new_friendly_id?
 	  slug.blank? || name_changed?
@@ -23,6 +22,18 @@ class Metric < ActiveRecord::Base
 			end
 		end
 	end
+
+	def set_csf_maturity_level
+
+		if self.active
+
+			@avg = Metric.where("csf_function_id" => self.csf_function_id).average(:recent_maturity_level)
+			CsfFunction.find(self.csf_function_id).update_attributes("avg_maturity_level" => @avg)
+
+		else
+		end
+		
+	end	
 
 	def csf_function_name
 		CsfFunction.find(self.csf_function_id).name
