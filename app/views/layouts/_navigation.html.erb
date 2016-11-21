@@ -23,7 +23,7 @@
 		    <li class="nav-item dropdown">
 		      <a class="btn btn-primary-outline dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.firstname %></a>
 		      	<div class="dropdown-menu" aria-labelledby="supportedContentDropdown" style="text-align:center"> 
-		      		<a class="dropdown-item" href="/users/<%= current_user.id %>">Profile</a>
+		      		<a class="dropdown-item" href="/users/<%= current_user.slug %>">Profile</a>
 		        	<a class="dropdown-item" href="/users/sign_out">Logout</a>
 		        </div>
 		    </li>

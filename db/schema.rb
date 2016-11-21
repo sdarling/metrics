@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120151452) do
+ActiveRecord::Schema.define(version: 20161121004350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,15 @@ ActiveRecord::Schema.define(version: 20161120151452) do
     t.datetime "updated_at",                              null: false
   end
 
+  create_table "metric_users", force: :cascade do |t|
+    t.integer  "metric_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "metric_users", ["metric_id", "user_id"], name: "index_metric_users_on_metric_id_and_user_id", using: :btree
+
   create_table "metric_values", force: :cascade do |t|
     t.integer  "metric_id"
     t.decimal  "value",          precision: 10, scale: 2
@@ -102,6 +111,7 @@ ActiveRecord::Schema.define(version: 20161120151452) do
     t.integer  "unit_id"
     t.integer  "recent_maturity_level"
     t.integer  "target_maturity_level"
+    t.integer  "owner_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end

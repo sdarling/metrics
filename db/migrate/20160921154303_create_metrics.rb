@@ -8,6 +8,7 @@ class CreateMetrics < ActiveRecord::Migration
       t.integer :unit_id
       t.integer :recent_maturity_level
       t.integer :target_maturity_level
+      t.integer :owner_id
       t.timestamps null: false
     end
   end
