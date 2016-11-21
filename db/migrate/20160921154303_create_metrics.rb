@@ -9,6 +9,8 @@ class CreateMetrics < ActiveRecord::Migration
       t.integer :recent_maturity_level
       t.integer :target_maturity_level
       t.integer :owner_id
+      t.boolean :visible, :default => true
+      t.boolean :calculated, :default => true
       t.timestamps null: false
     end
   end

@@ -14,6 +14,8 @@
         <th>First Entry</th>
         <th>Recent Entry</th>
         <th>Num Entries</th>
+        <th>Visible</th>
+        <th>Calculated</th>
       </tr>
     </thead>
 
@@ -23,9 +25,11 @@
           <td><%= link_to metric.name, metric_path(metric.slug) %></td>
           <td><%= metric.recent_maturity_level %></td>
           <td><%= metric.target_maturity_level %></td>
-          <td><%= metric.first_entry %></td>
-          <td><%= metric.recent_entry %></td>
+          <td><%= metric.first_entry.strftime("%m-%d-%y") %></td>
+          <td><%= metric.recent_entry.strftime("%m-%d-%y") %></td>
           <td><%= metric.num_entries %></td>
+          <td><%= best_in_place metric, :visible, :url => metric_path(metric), :as => :checkbox %></td>
+          <td><%= best_in_place metric, :calculated, :url => metric_path(metric), :as => :checkbox %></td>
         </tr>
       <% end %>
     </tbody>

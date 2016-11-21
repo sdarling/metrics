@@ -10,4 +10,3 @@ jQuery ->
 jQuery ->
 	$('#metrics').dataTable()
 	sPaginationType: "full_numbers"
-

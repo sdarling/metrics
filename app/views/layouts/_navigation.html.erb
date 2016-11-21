@@ -7,23 +7,23 @@
 		<% if user_signed_in? %>		
 		<ul class="nav navbar-nav pull-xs-right">
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/dashboards">Dashboard</i></a>
+				<a class="btn btn-primary-outline" href="/dashboards">Dashboard</a>
 			</li>
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/csf_functions">CSF Functions</i></a>
+				<a class="btn btn-primary-outline" href="/csf_functions">CSF Functions</a>
 			</li>	
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/csf_categories">CSF Categories</i></a>
+				<a class="btn btn-primary-outline" href="/csf_categories">CSF Categories</a>
 			</li>				
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/metrics">Metrics</i></a>
+				<a class="btn btn-primary-outline" href="/metrics">Metrics</a>
 			</li>	
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/users">Users</i></a>
+				<a class="btn btn-primary-outline" href="/users">Users</a>
 			</li>							
 		<% if user_signed_in? && current_user.superadmin? %>
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/admin">Admin</i></a>
+				<a class="btn btn-primary-outline" href="/admin">Admin</a>
 			</li>
 		<% end %>
 		    <li class="nav-item dropdown">
