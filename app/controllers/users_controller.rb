@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.friendly.find(params[:id])
+        @metrics = @user.metrics.all
     end
 
     private

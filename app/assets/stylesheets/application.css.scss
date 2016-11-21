@@ -16,10 +16,6 @@
  *= require_self
  */
 
-.navbar-light .navbar-nav > li > a {
-    color: #ee2c22;
-}
-
 /* bootstrap hack: fix content width inside hidden tabs */
 .tab-content > .tab-pane:not(.active),
 .pill-content > .pill-pane:not(.active) {

@@ -1,1 +1,24 @@
-<h1> Hi <%= @user.full_name %>
+<h1> Hi <%= @user.full_name %></h1>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6"> 
+      <table class="table">
+        <thead>
+          <tr class="text-xs-center">
+            <th>Name</th>
+            <th>Maturity Level</th>
+            <th>Recent Value</th>
+          </tr>
+        </thead>
+        <tbody>
+      <% @metrics.each do |m| %>        
+          <td><%= link_to m.name, metric_path(m.id) %></td>
+          <td><%= m.recent_maturity_level %></td>
+          <td><%= m.recent_value %></td>
+        </tbody>
+      <% end %>
+      </table>      
+    </div>
+  </div>
+</div>

@@ -7,17 +7,17 @@
 		<% if user_signed_in? %>		
 		<ul class="nav navbar-nav pull-xs-right">
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/dashboards"><i class="fa fa-tachometer" aria-hidden="true"></i></a>
+				<a class="btn btn-primary-outline" href="/dashboards">Dashboard</i></a>
 			</li>
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/csf_functions"><i class="fa fa-map-o" aria-hidden="true"></i></a>
+				<a class="btn btn-primary-outline" href="/csf_functions">CSF Functions</i></a>
 			</li>	
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/metrics"><i class="fa fa-bar-chart" aria-hidden="true"></i></a>
+				<a class="btn btn-primary-outline" href="/metrics">Metrics</i></a>
 			</li>	
 		<% if user_signed_in? && current_user.superadmin? %>
 			<li class="nav-item">
-				<a class="btn btn-primary-outline" href="/admin"><i class="fa fa-lock" aria-hidden="true"></i></a>
+				<a class="btn btn-primary-outline" href="/admin">Admin</i></a>
 			</li>
 		<% end %>
 		    <li class="nav-item dropdown">
