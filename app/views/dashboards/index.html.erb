@@ -222,6 +222,8 @@
         },
         plotOptions: {
             column: {
+            	grouping: false,
+            	shadow: false,
                 pointPadding: 0.2,
                 borderWidth: 0
             },
@@ -247,15 +249,11 @@
                       {y: <%= metric.recent_maturity_level %>, color: '#<%= metric.hex_color %>',
                        ownURL: '/metrics/<%= metric.slug %>'},
                     <% end %>
-            ]
+            ],
+            pointWidth: 20
             },{
-            lineWidth: 0,
-            marker: {
-                enabled: true,
-                radius: 9,
-                height: 2,
-                symbol: 'square'  },          
-            type: 'line',
+            pointWidth: 5,       
+            type: 'column',
             name: 'Target Value',
             data: [
                     <% @metrics.each do |metric| %>
