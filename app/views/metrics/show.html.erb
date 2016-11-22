@@ -65,7 +65,7 @@
       </button>      
     </div>
     <div class="col-xs-4">
-      <table class="table">
+      <table id="metric-values" class="display" cellspacing="0" width="100%">
         <thead>
           <tr class="text-xs-center">
             <th>Effective Date</th>
@@ -73,11 +73,13 @@
           </tr>
         </thead>
         <tbody>
-      <% @metric_values.each do |value| %>        
-          <td><%= best_in_place value, :effective_date, :url => metric_metric_value_path(@metric, value)%></td>
-          <td><%= best_in_place value, :value, :url => metric_metric_value_path(@metric, value) %></td>
+        <% @metric_values.each do |value| %>  
+          <tr class="text-xs-center">      
+            <td><%= value.effective_date.strftime("%m-%d-%y") %></td>
+            <td><%= value.value %></td>
+          </tr>
+        <% end %>
         </tbody>
-      <% end %>
       </table>      
     </div>
     <div class="col-xs-4">
@@ -101,7 +103,15 @@
 <%= render 'modal_maturitylevel' %>    
 <%= render 'modal_newvalue' %>
 
-
+<script>
+$(document).ready(function() {
+    $('#metric-values').DataTable( {
+        "paging": false,
+        "searching": false,
+        "info": false
+    } );
+} );
+</script>
 
 
 
