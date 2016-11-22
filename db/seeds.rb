@@ -108,42 +108,7 @@ CsfCategoryMetric.create("metric_id" => 19, "csf_category_id" => 10)
 CsfCategoryMetric.create("metric_id" => 20, "csf_category_id" => 2)
 CsfCategoryMetric.create("metric_id" => 20, "csf_category_id" => 4)
 
-@metric = Metric.all 
-@metric.each do |i|
 
-	MaturityLevel.create("metric_id" => i.id, "weighted_value" => "0", "low" => "0", "high" => "0")
-	MaturityLevel.create("metric_id" => i.id, "weighted_value" => "1", "low" => "1", "high" => "10")
-	MaturityLevel.create("metric_id" => i.id, "weighted_value" => "2", "low" => "11", "high" => "40")
-	MaturityLevel.create("metric_id" => i.id, "weighted_value" => "3", "low" => "41", "high" => "90")
-	MaturityLevel.create("metric_id" => i.id, "weighted_value" => "4", "low" => "91", "high" => "100")
-
-	MetricValue.create("metric_id" => i.id, "value" => "10", "effective_date" => "2016-1-1")
-	MetricValue.create("metric_id" => i.id, "value" => "20", "effective_date" => "2016-2-1")
-	MetricValue.create("metric_id" => i.id, "value" => "30", "effective_date" => "2016-3-1")
-
-	Metric.update_all("description" => "SAMPLE DESCRIPTION FOR METRIC")
-end
-
-@value = MetricValue.all
-@value.each do |v|
-	zero = MaturityLevel.where("metric_id" => v.metric_id).first	
-	one = MaturityLevel.where("metric_id" => v.metric_id).second
-	two = MaturityLevel.where("metric_id" => v.metric_id).third
-	three = MaturityLevel.where("metric_id" => v.metric_id).fourth
-	four = MaturityLevel.where("metric_id" => v.metric_id).fifth
-	
-	if v.value.between?(zero.low,zero.high)
-		v.update("maturity_level" => zero.weighted_value)
-	elsif v.value.between?(one.low,one.high)
-		v.update("maturity_level" => one.weighted_value)
-	elsif v.value.between?(two.low,two.high)
-		v.update("maturity_level" => two.weighted_value)
-	elsif v.value.between?(three.low,three.high)
-		v.update("maturity_level" => three.weighted_value)
-	elsif v.value.between?(four.low,four.high)
-		v.update("maturity_level" => four.weighted_value)
-	end
-end
 
 Score.create("effective_date" => "2016-1-1", "actual_value" => "1.5", "target_value" => "2")
 Score.create("effective_date" => "2016-2-1", "actual_value" => "1.9", "target_value" => "3")

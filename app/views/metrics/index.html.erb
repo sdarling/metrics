@@ -11,6 +11,8 @@ $(document).ready(function() {
 <h3>Download:</h3>
 <%= link_to "CSV", metrics_path(format: "csv") %> |
 <%= link_to "Excel", metrics_xlsx_path(format: :xlsx) %>
+<br>
+<%= link_to "Create New Metric", new_metric_path %>
 
 
   <table id="metrics" class="display" cellspacing="0" width="100%">
