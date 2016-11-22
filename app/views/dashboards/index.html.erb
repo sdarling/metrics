@@ -134,7 +134,10 @@
               x: -20
           },
           xAxis: {
-              categories: ['Jan', 'Feb', 'Mar']
+              categories: [<% @scores.each do |score| %>
+              				'<%= score.effective_date.strftime("%m-%d-%y") %>',
+              				<% end %>
+            ]
           },
           yAxis: {
               min: 0,
@@ -246,7 +249,12 @@
                     <% end %>
             ]
             },{
-            dashStyle: 'dash',
+            lineWidth: 0,
+            marker: {
+                enabled: true,
+                radius: 9,
+                height: 2,
+                symbol: 'square'  },          
             type: 'line',
             name: 'Target Value',
             data: [
