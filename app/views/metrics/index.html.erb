@@ -1,7 +1,7 @@
 <script>
 $(document).ready(function() {
     $('#metrics').DataTable( {
-        "pagingType": "simple_numbers"
+        "pagingType": "full_numbers"
     } );
 } );
 </script>
@@ -37,7 +37,7 @@ $(document).ready(function() {
           <td><%= metric.first_entry.strftime("%m-%d-%y") %></td>
           <td><%= metric.recent_entry.strftime("%m-%d-%y") %></td>
           <td><%= metric.num_entries %></td>
-          <td><%= best_in_place metric, :active, :url => metric_path(metric), :as => :checkbox %></td>
+          <td><%= best_in_place metric, :active, :url => metric_path(metric), :as => :checkbox, collection: ["Inactive","Active"] %></td>
         </tr>
       <% end %>
     </tbody>
