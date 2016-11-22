@@ -37,13 +37,20 @@ class Metric < ActiveRecord::Base
 	end
 
 	def first_entry
-		@old = MetricValue.where("metric_id" => self.id).order(:effective_date).first
-		@old.effective_date
+		if Metric.find(self.id).metric_values.first
+			@old = MetricValue.where("metric_id" => self.id).order(:effective_date).first
+			@old.effective_date
+		else
+		end
 	end
 
 	def recent_entry
-		@recent = MetricValue.where("metric_id" => self.id).order(:effective_date).reverse_order.first
-		@recent.effective_date
+		if Metric.find(self.id).metric_values.first
+
+			@recent = MetricValue.where("metric_id" => self.id).order(:effective_date).reverse_order.first
+			@recent.effective_date
+		else
+		end
 	end
 
 	def recent_value

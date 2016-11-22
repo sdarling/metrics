@@ -44,15 +44,14 @@ class MetricsController < ApplicationController
   def create
     @metric = Metric.new(metric_params)
 
-    respond_to do |format|
       if @metric.save
-        format.html { redirect_to @metric, notice: 'Metric was successfully created.' }
-        format.json { render :show, status: :created, location: @metric }
+        session[:metric_id] = @metric.id
+        redirect_to metric_steps_path
+
       else
         format.html { render :new }
         format.json { render json: @metric.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PATCH/PUT /metrics/1

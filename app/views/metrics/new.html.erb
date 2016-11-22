@@ -1,0 +1,10 @@
+New Metric
+
+<%= simple_form_for @metric do |f| %>
+
+    <%= f.text_field :name %>
+    <%= f.collection_select :csf_function_id, CsfFunction.all, :id, :name %>
+    <%= f.button :submit %>
+
+<% end %>
+

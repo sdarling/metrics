@@ -1,0 +1,12 @@
+<b>Name:</b> <%= @metric.name %>
+<b>Active:</b> <%= @metric.active %>
+<b>Description:</b> <%= @metric.description %>
+
+<p>
+You are now finished, click the button below to see your new metric!
+</p>
+
+<p>
+<%= link_to "Show Metric", metric_path(@metric.slug) %>
+</p>
+

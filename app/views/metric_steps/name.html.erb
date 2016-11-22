@@ -1,0 +1,13 @@
+<b>Name:</b> <%= @metric.name %>
+
+<%= simple_form_for @metric, url: wizard_path do |f| %>
+
+    <%= f.check_box :active %>
+    <%= f.button :submit, "Continue" %>
+
+<% end %>
+
+
+
+
+

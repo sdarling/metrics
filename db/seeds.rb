@@ -168,3 +168,7 @@ Source.create("id" => 1, "name" => "System Center Configuration Manager (SCCM)")
 
 Report.create("id" => 1, "name" => "Server Patch Duration Time", "source_id" => 1)
 Report.create("id" => 2, "name" => "Symantec Encryption Compliance Percentage", "source_id" => 1)
+
+ActiveRecord::Base.connection.tables.each do |t|
+  ActiveRecord::Base.connection.reset_pk_sequence!(t)
+end

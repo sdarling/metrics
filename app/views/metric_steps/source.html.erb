@@ -1,0 +1,12 @@
+<b>Name:</b> <%= @metric.name %>
+<b>Active:</b> <%= @metric.active %>
+
+
+
+
+<%= simple_form_for @metric, url: wizard_path do |f| %>
+
+    <%= f.text_field :description %>
+    <%= f.button :submit, "Continue" %>
+
+<% end %>
