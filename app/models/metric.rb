@@ -9,43 +9,31 @@ class Metric < ActiveRecord::Base
   	friendly_id :name, use: :slugged
   	scope :active, -> { where(active: true)}
   	after_update :set_csf_maturity_level
-  	after_create :set_maturity_level_and_values
+  	after_create :create_seed_targets
+  	after_create :create_seed_values
 
-  	def set_maturity_level_and_values
+  	def create_seed_targets
   		metric = self.id
+  		cur_date = DateTime.now
+  		cur_period = Period.where("start_date" < cur_date, "end_date" > cur_date).first.id
 
-			MaturityLevel.create("metric_id" => metric, "weighted_value" => "0", "low" => "0", "high" => "0")
-			MaturityLevel.create("metric_id" => metric, "weighted_value" => "1", "low" => "1", "high" => "10")
-			MaturityLevel.create("metric_id" => metric, "weighted_value" => "2", "low" => "11", "high" => "40")
-			MaturityLevel.create("metric_id" => metric, "weighted_value" => "3", "low" => "41", "high" => "90")
-			MaturityLevel.create("metric_id" => metric, "weighted_value" => "4", "low" => "91", "high" => "100")
+  		MetricTargetValue.create("metric_id" => metric, "period" => cur_period, "target_value" => 20, "target_maturity_level" => 0)
+  		MetricTargetValue.create("metric_id" => metric, "period" => cur_period+1, "target_value" => 30, "target_maturity_level" => 1)
+  		MetricTargetValue.create("metric_id" => metric, "period" => cur_period+2, "target_value" => 50, "target_maturity_level" => 2)
+  		MetricTargetValue.create("metric_id" => metric, "period" => cur_period+3, "target_value" => 70, "target_maturity_level" => 3)
+  		MetricTargetValue.create("metric_id" => metric, "period" => cur_period+4, "target_value" => 90, "target_maturity_level" => 4)
 
-			MetricValue.create("metric_id" => metric, "value" => "10", "effective_date" => "2016-1-1")
-			MetricValue.create("metric_id" => metric, "value" => "20", "effective_date" => "2016-2-1")
-			MetricValue.create("metric_id" => metric, "value" => "30", "effective_date" => "2016-3-1")
+  	def create_seed_values
+  		metric = self.id
+  		cur_date = DateTime.now
+  		cur_period = Period.where("start_date" < cur_date, "end_date" > cur_date).first.id
+  		period_1 = Period.find(Period - 1)
+  		period_2 = Period.find(Period - 2)
+  		period_3 = Period.find(Period - 3)		
 
-
-		@value = MetricValue.all
-		@value.each do |v|
-			zero = MaturityLevel.where("metric_id" => v.metric_id).first	
-			one = MaturityLevel.where("metric_id" => v.metric_id).second
-			two = MaturityLevel.where("metric_id" => v.metric_id).third
-			three = MaturityLevel.where("metric_id" => v.metric_id).fourth
-			four = MaturityLevel.where("metric_id" => v.metric_id).fifth
-			
-			if v.value.between?(zero.low,zero.high)
-				v.update("maturity_level" => zero.weighted_value)
-			elsif v.value.between?(one.low,one.high)
-				v.update("maturity_level" => one.weighted_value)
-			elsif v.value.between?(two.low,two.high)
-				v.update("maturity_level" => two.weighted_value)
-			elsif v.value.between?(three.low,three.high)
-				v.update("maturity_level" => three.weighted_value)
-			elsif v.value.between?(four.low,four.high)
-				v.update("maturity_level" => four.weighted_value)
-			end
-		end
-
+		MetricValue.create("metric_id" => metric, "period_id" => period_1.id, "value" => "5", "maturity_level" => 0, "effective_date" => period_1.end_date)
+		MetricValue.create("metric_id" => metric, "period_id" => period_2.id, "value" => "10", "maturity_level" => 0, "effective_date" => period_2.end_date)
+		MetricValue.create("metric_id" => metric, "period_id" => period_3.id, "value" => "30", "maturity_level" => 1, "effective_date" => period_3.end_date)
 	end
 
 	def should_generate_new_friendly_id?

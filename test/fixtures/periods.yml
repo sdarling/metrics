@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year: MyString
+  fy_year: MyString
+  month: MyString
+  month_name: MyString
+  month_short_name: MyString
+  quarter: MyString
+  fy_quarter: MyString
+  start_date: 2016-11-23 04:29:38
+  end_date: 2016-11-23 04:29:38
+
+two:
+  year: MyString
+  fy_year: MyString
+  month: MyString
+  month_name: MyString
+  month_short_name: MyString
+  quarter: MyString
+  fy_quarter: MyString
+  start_date: 2016-11-23 04:29:38
+  end_date: 2016-11-23 04:29:38

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121164140) do
+ActiveRecord::Schema.define(version: 20161123094331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,15 @@ ActiveRecord::Schema.define(version: 20161121164140) do
     t.datetime "updated_at",                              null: false
   end
 
+  create_table "metric_target_values", force: :cascade do |t|
+    t.integer  "metric_id"
+    t.integer  "period_id"
+    t.decimal  "target_value",          precision: 10, scale: 2
+    t.integer  "target_maturity_level"
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+  end
+
   create_table "metric_users", force: :cascade do |t|
     t.integer  "metric_id"
     t.integer  "user_id"
@@ -130,6 +139,20 @@ ActiveRecord::Schema.define(version: 20161121164140) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "periods", force: :cascade do |t|
+    t.string   "year"
+    t.string   "fy_year"
+    t.string   "month"
+    t.string   "month_name"
+    t.string   "month_short_name"
+    t.string   "quarter"
+    t.string   "fy_quarter"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "reports", force: :cascade do |t|

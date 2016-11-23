@@ -9,6 +9,10 @@ class CreateMetrics < ActiveRecord::Migration
       t.integer :recent_maturity_level
       t.integer :target_maturity_level
       t.integer :owner_id
+      t.decimal :ml_1, :precision => 10, :scale => 2
+      t.decimal :ml_2, :precision => 10, :scale => 2
+      t.decimal :ml_3, :precision => 10, :scale => 2
+      t.decimal :ml_4, :precision => 10, :scale => 2
       t.boolean :active, :default => true
       t.timestamps null: false
     end

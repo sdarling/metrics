@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  metric_id: 1
+  period_id: 1
+  target_value: 9.99
+  target_maturity_level: 1
+
+two:
+  metric_id: 1
+  period_id: 1
+  target_value: 9.99
+  target_maturity_level: 1
