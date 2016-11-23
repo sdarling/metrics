@@ -5,7 +5,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title" id="Modal-MaturityLevel-Label"><%= @metric.name %> Maturity Levels</h4>
+        <h4 class="modal-title text-xs-center" id="Modal-MaturityLevel-Label"><%= @metric.name %> - Maturity Levels</h4>
       </div>
       <div class="modal-body">
         <table class="table">
@@ -14,15 +14,34 @@
               <th class="text-xs-center">Maturity Level</th>
               <th>Low</th>
               <th>High</th>
-            </tr>
+            </tr>            
           </thead>
           <tbody>
-        <% @mat_level.each do |value| %>        
-            <td class="text-xs-center"><%= value.weighted_value %></td>
-            <td><%= value.low %></td>
-            <td><%= value.high %></td>
+            <tr class="text-xs-center">
+              <td class="text-xs-center">0</td>
+              <td>0</td>
+              <td><%= best_in_place @metric, :ml_1, :url => metric_path(@metric) %></td>
+            <tr class="text-xs-center">
+              <td class="text-xs-center">1</td>
+              <td><%= @metric.ml_1 + 1 %></td>
+              <td><%= best_in_place @metric, :ml_2, :url => metric_path(@metric)  %></td>
+            </tr>
+            <tr class="text-xs-center">
+              <td class="text-xs-center">2</td>
+              <td><%= @metric.ml_2 + 1 %></td>
+              <td><%= best_in_place @metric, :ml_3, :url => metric_path(@metric)  %></td>
+            </tr>
+            <tr class="text-xs-center">
+              <td class="text-xs-center">3</td>
+              <td><%= @metric.ml_3 + 1 %></td>
+              <td><%= best_in_place @metric, :ml_4, :url => metric_path(@metric)  %></td>
+            </tr> 
+            <tr class="text-xs-center">
+              <td class="text-xs-center">4</td>
+              <td><%= @metric.ml_4 + 1 %></td>
+              <td>  >  </td>
+            <tr>                                              
           </tbody>
-        <% end %>
         </table>
       </div>
       <div class="modal-footer">

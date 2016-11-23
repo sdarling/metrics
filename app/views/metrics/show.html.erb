@@ -21,14 +21,15 @@
           </p>
           <br/>
           <p>
-          <div>
-	          <%= form_for(@metric) do |f| %>
-	          	<%= f.collection_select :user_ids , User.all, :id, :full_name, {}, {multiple: true, :style => 'width: 400px'} %>
-          </div>
+            <strong>Contributors:</strong>
+            <div>
+  	          <%= form_for(@metric) do |f| %>
+  	          	<%= f.collection_select :user_ids , User.all, :id, :full_name, {}, {multiple: true, :style => 'width: 400px'} %>
+            </div>
           </p>
           <br>
           <div>
-          	<%= f.submit %>
+          	<%= f.submit "Update Contributors" %>
           </div>
           <% end %>
         </div>

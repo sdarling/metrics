@@ -13,22 +13,24 @@ class MetricValue < ActiveRecord::Base
 
 	def set_maturity_level
 
-		zero = MaturityLevel.where("metric_id" => self.metric_id).first
-		one = MaturityLevel.where("metric_id" => self.metric_id).second		
-		two = MaturityLevel.where("metric_id" => self.metric_id).third
-		three = MaturityLevel.where("metric_id" => self.metric_id).fourth		
-		four = MaturityLevel.where("metric_id" => self.metric_id).fifth
+		metric = Metric.find(self.metric_id)
+
 		
-		if self.value.between?(zero.low,zero.high)
-			self.update("maturity_level" => zero.weighted_value)
-		elsif self.value.between?(one.low,one.high)
-			self.update("maturity_level" => one.weighted_value)
-		elsif self.value.between?(two.low,two.high)
-			self.update("maturity_level" => two.weighted_value)
-		elsif self.value.between?(three.low,three.high)
-			self.update("maturity_level" => three.weighted_value)
-		elsif self.value.between?(four.low,four.high)
-			self.update("maturity_level" => four.weighted_value)
+		one = metric.ml_1	
+		two = metric.ml_2
+		three = metric.ml_3		
+		four = metric.ml_4
+		
+		if self.value < one
+			self.update("maturity_level" => 0)
+		elsif self.value.between?(one,two)
+			self.update("maturity_level" => 1)
+		elsif self.value.between?(two,three)
+			self.update("maturity_level" => 2)
+		elsif self.value.between?(three,four)
+			self.update("maturity_level" => 3)
+		elsif self.value > four
+			self.update("maturity_level" => 4)
 		end
 	end
 

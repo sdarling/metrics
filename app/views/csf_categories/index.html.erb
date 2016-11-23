@@ -16,7 +16,7 @@
   <tbody>
     <% @csf_categories.each do |csf_category| %>
       <tr>
-        <td><%= csf_category.csf_function_id %></td>
+        <td><%= link_to csf_category.csf_function_name, csf_function_path(csf_category.csf_function_id) %></td>
         <td><%= csf_category.name %></td>
         <td><%= csf_category.description %></td>
         <td><%= csf_category.abbreviation %></td>

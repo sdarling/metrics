@@ -20,7 +20,6 @@ class MetricsController < ApplicationController
     @categories = @metric.csf_categories
     @metric_values = MetricValue.where("metric_id" => @metric.id).order(:effective_date)
     @metric_value = MetricValue.new
-    @mat_level = MaturityLevel.where("metric_id" =>@metric.id)
   end
 
   # GET /metrics/new

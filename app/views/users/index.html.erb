@@ -1,9 +1,18 @@
+<script>
+$(document).ready(function() {
+    $('#users').DataTable( {
+        "pagingType": "full_numbers"
+    } );
+} );
+</script>
+
 <div class="table-responsive">
-  <table class="table">
+  <table id="users" class="display" cellspacing="0" width="100%">
     <thead>
       <tr>
         <th>Name</th>
         <th>Email</th>
+        <th>Num Metrics</th>
       </tr>
     </thead>
 
@@ -12,6 +21,7 @@
         <tr>
           <td><%= link_to u.full_name, user_path(u.slug) %></td>
           <td><%= u.email %></td>
+          <td><%= u.metrics_count %></td>
         </tr>
       <% end %>
     </tbody>

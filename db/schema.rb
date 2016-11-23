@@ -82,15 +82,6 @@ ActiveRecord::Schema.define(version: 20161123094331) do
     t.datetime "updated_at",        null: false
   end
 
-  create_table "maturity_levels", force: :cascade do |t|
-    t.integer  "metric_id"
-    t.integer  "weighted_value"
-    t.decimal  "low",            precision: 10, scale: 2
-    t.decimal  "high",           precision: 10, scale: 2
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-  end
-
   create_table "metric_target_values", force: :cascade do |t|
     t.integer  "metric_id"
     t.integer  "period_id"
@@ -111,6 +102,7 @@ ActiveRecord::Schema.define(version: 20161123094331) do
 
   create_table "metric_values", force: :cascade do |t|
     t.integer  "metric_id"
+    t.integer  "period_id"
     t.decimal  "value",          precision: 10, scale: 2
     t.integer  "maturity_level"
     t.datetime "effective_date"
@@ -127,9 +119,13 @@ ActiveRecord::Schema.define(version: 20161123094331) do
     t.integer  "recent_maturity_level"
     t.integer  "target_maturity_level"
     t.integer  "owner_id"
-    t.boolean  "active",                default: true
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.decimal  "ml_1",                  precision: 10, scale: 2, default: 29.0
+    t.decimal  "ml_2",                  precision: 10, scale: 2, default: 49.0
+    t.decimal  "ml_3",                  precision: 10, scale: 2, default: 69.0
+    t.decimal  "ml_4",                  precision: 10, scale: 2, default: 79.0
+    t.boolean  "active",                                         default: true
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
     t.string   "slug"
   end
 
@@ -142,13 +138,13 @@ ActiveRecord::Schema.define(version: 20161123094331) do
   end
 
   create_table "periods", force: :cascade do |t|
-    t.string   "year"
-    t.string   "fy_year"
-    t.string   "month"
+    t.integer  "year"
+    t.integer  "fy_year"
+    t.integer  "month"
     t.string   "month_name"
     t.string   "month_short_name"
-    t.string   "quarter"
-    t.string   "fy_quarter"
+    t.integer  "quarter"
+    t.integer  "fy_quarter"
     t.datetime "start_date"
     t.datetime "end_date"
     t.datetime "created_at",       null: false

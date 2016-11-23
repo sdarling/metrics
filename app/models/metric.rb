@@ -14,26 +14,27 @@ class Metric < ActiveRecord::Base
 
   	def create_seed_targets
   		metric = self.id
-  		cur_date = DateTime.now
-  		cur_period = Period.where("start_date" < cur_date, "end_date" > cur_date).first.id
+  		cur_date = DateTime.now.to_date
+  		cur_period = Period.where('start_date < ?', cur_date).where('end_date > ?', cur_date).first.id
 
-  		MetricTargetValue.create("metric_id" => metric, "period" => cur_period, "target_value" => 20, "target_maturity_level" => 0)
-  		MetricTargetValue.create("metric_id" => metric, "period" => cur_period+1, "target_value" => 30, "target_maturity_level" => 1)
-  		MetricTargetValue.create("metric_id" => metric, "period" => cur_period+2, "target_value" => 50, "target_maturity_level" => 2)
-  		MetricTargetValue.create("metric_id" => metric, "period" => cur_period+3, "target_value" => 70, "target_maturity_level" => 3)
-  		MetricTargetValue.create("metric_id" => metric, "period" => cur_period+4, "target_value" => 90, "target_maturity_level" => 4)
+  		MetricTargetValue.create("metric_id" => metric, "period_id" => cur_period, "target_value" => 20, "target_maturity_level" => 0)
+  		MetricTargetValue.create("metric_id" => metric, "period_id" => cur_period+1, "target_value" => 30, "target_maturity_level" => 1)
+  		MetricTargetValue.create("metric_id" => metric, "period_id" => cur_period+2, "target_value" => 50, "target_maturity_level" => 2)
+  		MetricTargetValue.create("metric_id" => metric, "period_id" => cur_period+3, "target_value" => 70, "target_maturity_level" => 3)
+  		MetricTargetValue.create("metric_id" => metric, "period_id" => cur_period+4, "target_value" => 90, "target_maturity_level" => 4)
+  	end
 
   	def create_seed_values
   		metric = self.id
-  		cur_date = DateTime.now
-  		cur_period = Period.where("start_date" < cur_date, "end_date" > cur_date).first.id
-  		period_1 = Period.find(Period - 1)
-  		period_2 = Period.find(Period - 2)
-  		period_3 = Period.find(Period - 3)		
+  		cur_date = DateTime.now.to_date
+  		cur_period = Period.where('start_date < ?', cur_date).where('end_date > ?', cur_date).first.id
+  		period_1 = Period.find(cur_period - 1)
+  		period_2 = Period.find(cur_period - 2)
+  		period_3 = Period.find(cur_period - 3)		
 
-		MetricValue.create("metric_id" => metric, "period_id" => period_1.id, "value" => "5", "maturity_level" => 0, "effective_date" => period_1.end_date)
+		MetricValue.create("metric_id" => metric, "period_id" => period_1.id, "value" => "30", "maturity_level" => 1, "effective_date" => period_1.end_date)
 		MetricValue.create("metric_id" => metric, "period_id" => period_2.id, "value" => "10", "maturity_level" => 0, "effective_date" => period_2.end_date)
-		MetricValue.create("metric_id" => metric, "period_id" => period_3.id, "value" => "30", "maturity_level" => 1, "effective_date" => period_3.end_date)
+		MetricValue.create("metric_id" => metric, "period_id" => period_3.id, "value" => "5", "maturity_level" => 0, "effective_date" => period_3.end_date)
 	end
 
 	def should_generate_new_friendly_id?

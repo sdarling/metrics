@@ -5,22 +5,21 @@
 <table>
   <thead>
     <tr>
-      <th>Source</th>
       <th>Name</th>
+      <th>Source</th>
       <th>Description</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @reports.each do |report| %>
       <tr>
-        <td><%= report.source_id %></td>
         <td><%= report.name %></td>
+        <td><%= report.source_name %></td>
         <td><%= report.description %></td>
         <td><%= link_to 'Show', report %></td>
         <td><%= link_to 'Edit', edit_report_path(report) %></td>
-        <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

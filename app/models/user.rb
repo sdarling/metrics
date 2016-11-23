@@ -16,5 +16,9 @@ class User < ActiveRecord::Base
   def full_name
   	self.firstname + ' ' + self.lastname
   end
+
+  def metrics_count
+    self.metrics.count(:id)
+  end
       
 end
